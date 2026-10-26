@@ -1,0 +1,861 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>打完 18 個月之後｜抗類澱粉抗體長期追蹤</title>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="deck.css">
+<style>
+/* ===== 本案：學術版（神經科醫師聽眾）；視覺系統＝家屬講座 deck.css，下列為本案元件 ===== */
+.k-slide h2{font-size:54px}
+.k-sub{font-size:27px}
+.k-cite{font-size:17px}
+.k-nav button{font-size:16px;padding:5px 11px}
+.k-conf{display:inline-block;font-size:18px;font-weight:900;color:var(--terra);border:2px solid var(--terra);border-radius:6px;
+  padding:0 7px;margin-left:6px;vertical-align:3px;line-height:1.4;background:#FFFFFF}
+.k-hint{font-size:22px;color:var(--muted);margin:8px 0 0}
+.k-src{font-size:20px!important;color:var(--muted);margin-top:auto!important;padding-top:12px}
+.k-legend2{display:flex;gap:28px;font-size:24px;color:var(--ink-2);margin:0 0 14px;align-items:center}
+.k-legend2 i{display:inline-block;width:22px;height:22px;border-radius:5px;vertical-align:-3px;margin-right:8px}
+.k-chip{display:inline-block;background:var(--terra);color:#FFFFFF;border-radius:999px;padding:2px 14px;font-size:22px;font-weight:900}
+/* 結論條 */
+.k-take{flex:0 0 auto;margin-top:auto;padding:14px 26px;border-radius:14px;background:var(--navy-wash);border-left:12px solid var(--navy);
+  font-size:30px;font-weight:900;line-height:1.4}
+.k-take.warn{background:var(--terra-wash);border-left-color:var(--terra)}
+.k-take + .k-cite{margin-top:14px}
+
+/* 直立分組長條 */
+.k-vb{display:flex;align-items:flex-end;gap:70px;height:400px;padding:0 10px;border-bottom:3px solid var(--ink)}
+.k-vg{display:flex;align-items:flex-end;gap:12px;height:100%}
+.k-vc{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;width:96px}
+.k-vc b{font-family:"Noto Serif TC",serif;font-size:32px;font-weight:900;margin-bottom:6px;line-height:1.1;white-space:nowrap}
+.k-vc i{display:block;width:96px;border-radius:8px 8px 0 0;transform-origin:bottom;transition:transform .7s ease}
+.k-vlabs{display:flex;gap:70px;padding:0 10px}
+.k-vlabs span{text-align:center;font-size:27px;font-weight:900;color:var(--navy);padding-top:10px}
+.k-vb[data-s]:not(.on) .k-vc i{transform:scaleY(0)}
+
+/* 重繪森林圖 */
+.k-forest{font-size:16px;line-height:1.3}
+.k-forest .fr{display:grid;grid-template-columns:160px 54px 1fr 54px;align-items:center;gap:8px;height:24px}
+.k-forest .fr span:first-child{white-space:nowrap}
+.k-forest .nn,.k-forest .vv{text-align:right;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.k-forest .plot{position:relative;height:100%;border-left:1px solid var(--line);border-right:1px solid var(--line)}
+.k-forest .ci{position:absolute;top:11px;height:2px;background:var(--ink-2)}
+.k-forest .pt{position:absolute;top:6px;width:12px;height:12px;background:#7FB8C2}
+.k-forest .dia{position:absolute;top:5px;height:14px;border-radius:7px}
+.k-forest .hd span{font-weight:900;color:var(--navy);padding-top:4px}
+.k-forest .sum span{font-weight:900;font-size:15px}
+.k-forest .th{font-weight:900;color:var(--muted);font-size:15px;border-bottom:2px solid var(--line)}
+.k-forest .ax{height:22px}.k-forest .ax .plot{border:0;border-top:2px solid var(--ink)}
+.k-forest .ax b{position:absolute;top:4px;transform:translateX(-50%);font-size:14px;font-weight:500;color:var(--muted)}
+
+/* 原文圖 */
+.k-orig{border:2px solid var(--line);border-radius:12px;width:100%;display:block;cursor:zoom-in}
+.k-figcap{font-size:20px;color:var(--muted);margin:8px 0 0}
+
+/* p2 問題卡 */
+.k-qcard{display:flex;flex-direction:column;align-items:flex-start;padding:34px 36px;border-radius:20px;border:3px solid var(--line);
+  border-top:12px solid var(--navy);background:var(--line-2);box-shadow:0 6px 0 var(--line)}
+.k-qcard .k-no{font-family:"Noto Serif TC",serif;font-size:80px;font-weight:900;color:var(--sage);line-height:1;margin:0}
+.k-qcard .k-q{font-size:42px!important;font-weight:900;color:var(--navy);margin-top:22px;line-height:1.3}
+.k-qcard .k-a{font-size:27px!important;line-height:1.5;margin-top:18px;color:var(--ink)}
+.k-qcard .k-tap{margin-top:auto;font-size:22px;font-weight:900;color:#FFFFFF;background:var(--terra);border-radius:999px;padding:3px 14px}
+.k-qcard.shown{background:var(--navy-wash);border-color:var(--navy)}
+.k-qcard.shown .k-tap{display:none}
+
+/* p3 時間軸：上下交錯，標籤貼近時間線 */
+.k-tl{position:relative;flex:1 1 auto;display:grid;grid-template-columns:repeat(10,1fr);grid-template-rows:1fr 1fr;margin:10px 0 20px}
+.k-tl:before{content:"";position:absolute;left:0;right:0;top:50%;height:8px;margin-top:-4px;background:var(--line);border-radius:4px}
+.k-tev{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 4px}
+.k-tev.up{grid-row:1;justify-content:flex-end;padding-bottom:40px}
+.k-tev.dn{grid-row:2;justify-content:flex-start;padding-top:40px}
+.k-tev:nth-child(1){grid-column:1}.k-tev:nth-child(2){grid-column:2}.k-tev:nth-child(3){grid-column:3}.k-tev:nth-child(4){grid-column:4}.k-tev:nth-child(5){grid-column:5}
+.k-tev:nth-child(6){grid-column:6}.k-tev:nth-child(7){grid-column:7}.k-tev:nth-child(8){grid-column:8}.k-tev:nth-child(9){grid-column:9}.k-tev:nth-child(10){grid-column:10}
+.k-tev i{position:absolute;left:50%;width:30px;height:30px;margin-left:-15px;border-radius:50%;z-index:1}
+.k-tev.up i{bottom:-15px}.k-tev.dn i{top:-15px}
+.k-tev b{font-size:27px;font-weight:900}
+.k-tev span{font-size:23px;line-height:1.35;margin-top:4px}
+
+/* p4 機轉：步數決定淡化哪一支 */
+.k-svg4{width:100%;height:520px;margin-top:6px}
+.k-svg4 g{transition:opacity .4s ease}
+.k-mech[data-step="1"] .t-don,.k-mech[data-step="1"] .t-fc{opacity:.15}
+.k-mech[data-step="2"] .t-lec,.k-mech[data-step="2"] .t-fc{opacity:.15}
+.k-mech[data-step="0"] .t-fc{opacity:.15}
+
+/* p5 ARIA 步驟 */
+.k-step5{display:flex;gap:20px;align-items:flex-start;padding:16px 20px;border-radius:16px;background:var(--line-2)}
+.k-step5 .n{flex:none;width:56px;height:56px;border-radius:50%;color:#FFFFFF;font-family:"Noto Serif TC",serif;font-size:32px;font-weight:900;display:flex;align-items:center;justify-content:center}
+.k-step5 h3{margin:0;font-size:31px;font-weight:900;color:var(--navy)}
+.k-step5 p{margin:4px 0 0;font-size:24px;line-height:1.4}
+
+/* p6 樞紐試驗卡 */
+.k-trial{border-radius:20px;background:var(--line-2);padding:30px 34px}
+.k-trial h3{margin:0;font-size:36px;font-weight:900;color:var(--navy);border-left:14px solid;padding-left:18px;line-height:1.25}
+.k-trial h3 small{display:block;font-size:22px;color:var(--muted);font-weight:500;margin-top:4px}
+.k-trial .k-lab{margin:22px 0 0;font-size:26px;color:var(--muted)}
+.k-trial .k-num1{margin:0;font-family:"Noto Serif TC",serif;font-size:96px;font-weight:900;line-height:1.3}
+.k-trial .k-ci{margin:2px 0 0;font-size:22px;color:var(--ink-2);line-height:1.4}
+.k-trial .k-row3{border-top:2px solid var(--line);margin-top:22px;padding-top:16px}
+.k-trial .k-v2{margin:2px 0 0;font-family:"Noto Serif TC",serif;font-size:50px;font-weight:900}
+
+/* p9 數字列 */
+.k-row9{display:grid;grid-template-columns:240px 1fr;gap:18px;align-items:baseline;padding:14px 0;border-bottom:2px solid var(--line)}
+.k-row9 b{font-family:"Noto Serif TC",serif;font-size:44px;font-weight:900;white-space:nowrap}
+.k-row9 p{margin:0;font-size:27px;line-height:1.45}
+
+/* 卡片（上色條） */
+.k-bcard{display:flex;flex-direction:column;border-radius:18px;background:var(--line-2);border-top:12px solid;padding:24px 26px}
+.k-bcard h3{margin:0;font-size:34px;font-weight:900;color:var(--navy);line-height:1.3}
+.k-bcard .k-bv{margin:18px 0 10px;font-family:"Noto Serif TC",serif;font-size:50px;font-weight:900;line-height:1.15}
+.k-bcard p{margin:0;font-size:26px;line-height:1.45}
+.k-card .k-src{margin-top:14px!important}
+.k-g4.k-fill,.k-g3.k-fill,.k-g2.k-fill{align-items:stretch}
+.k-g3.k-fill > .k-card,.k-g2.k-fill > .k-card{display:flex;flex-direction:column}
+
+/* p12 世代表 */
+table.k-coh td{font-size:25px;padding:8px 14px}
+table.k-coh th{font-size:22px}
+table.k-coh td.k-srcc{font-size:19px;color:var(--muted)}
+.k-cohpage[data-step="1"] tr.asia td{background:var(--sage-wash)}
+.k-cohpage[data-step="2"] tr.us td{background:var(--terra-wash)}
+
+/* p16 偵測迷你長條 */
+.k-mb{display:flex;gap:14px;align-items:flex-end;height:170px;margin:8px 0 14px}
+.k-mb div{width:84px;background:var(--navy);color:#FFFFFF;font-weight:900;font-size:28px;text-align:center;border-radius:8px 8px 0 0}
+
+/* p18 MRI 時程 */
+.k-mri{position:relative}
+.k-mri .tr{position:relative;display:grid;grid-template-columns:300px 1fr;align-items:center;height:150px}
+.k-mri .tl{font-size:32px;text-align:right;padding-right:40px;line-height:1.3}
+.k-mri .tl span{font-size:22px;color:var(--muted)}
+.k-mri .ax{position:relative;height:8px;border-radius:4px}
+.k-mri .mk{position:absolute;top:-22px;transform:translateX(-50%);text-align:center;width:180px}
+.k-mri .dt{width:44px;height:44px;border-radius:50%;margin:0 auto}
+.k-mri .dt.hollow{background:#FFFFFF;border:6px solid}
+.k-mri .mt{font-size:22px;margin-top:8px}
+.k-mri .months{position:relative;display:grid;grid-template-columns:300px 1fr}
+.k-mri .ax2{position:relative;height:40px}
+.k-mri .ax2 span{position:absolute;transform:translateX(-50%);font-size:22px;color:var(--muted)}
+.k-mri .win{position:absolute;left:300px;top:88px;height:340px;background:var(--butter-wash);border-radius:12px}
+.k-mri > [data-sto],.k-mri > [data-s]{position:relative}
+
+/* p19 規格 */
+.k-spec{display:flex;gap:18px;align-items:center;padding:12px 0;border-bottom:2px solid var(--line);font-size:29px}
+.k-spec b{flex:none;width:48px;height:48px;border-radius:50%;background:var(--navy);color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-family:"Noto Serif TC",serif;font-size:26px}
+
+/* p20／p26 左側按鈕 */
+.k-rf{display:block;width:100%;font-size:29px;font-weight:900;color:var(--navy);background:#FFFFFF;border:3px solid var(--navy);
+  border-left:14px solid var(--navy);border-radius:12px;padding:10px 20px;box-shadow:0 6px 0 #15304D;transition:transform .1s,box-shadow .1s}
+.k-rf[aria-pressed="true"]{background:var(--navy);color:#FFFFFF;border-left-color:var(--butter);transform:translateY(4px);box-shadow:0 2px 0 #15304D}
+.k-rf.big{text-align:center;font-size:34px;padding:22px 16px;border-left-width:3px}
+.k-rf.big small{font-size:22px;font-weight:700}
+.k-rdw{position:relative}
+.k-rd{border-radius:20px;background:var(--line-2);padding:34px 40px;height:100%;display:flex;flex-direction:column}
+.k-rd h3{margin:0;font-family:"Noto Serif TC",serif;font-size:44px;font-weight:900;color:var(--navy)}
+.k-rd p{margin:22px 0 0;font-size:32px;line-height:1.55}
+.k-ph{display:flex;align-items:center;justify-content:center;height:100%;border-radius:20px;border:3px dashed var(--line);font-size:30px;color:var(--muted)}
+
+/* p21 處置矩陣 */
+table.k-mx{width:100%;border-collapse:separate;border-spacing:6px;font-size:25px;margin:-6px;table-layout:fixed}
+table.k-mx th{font-size:22px;font-weight:900;color:#FFFFFF;background:var(--navy);padding:9px 12px;text-align:center;border-radius:8px}
+table.k-mx th:first-child{text-align:left;width:36%}
+table.k-mx td{padding:11px 12px;border-radius:10px;background:var(--line-2);font-weight:700}
+table.k-mx td.cell{text-align:center;cursor:pointer;box-shadow:inset 0 -6px 0 rgba(0,0,0,.12)}
+table.k-mx td.go{background:var(--sage-wash);color:var(--sage)}
+table.k-mx td.stop{background:var(--terra-wash);color:var(--terra)}
+table.k-mx td.sel{outline:4px solid var(--navy);outline-offset:-4px}
+.k-det{margin-top:16px;padding:18px 24px;border-radius:16px;background:var(--navy-wash);font-size:27px;line-height:1.5;min-height:96px}
+
+/* p22 p-tau217 */
+.k-pt{position:relative;border-radius:18px;background:var(--line-2);padding:18px 20px}
+.k-ptn{position:absolute;right:16px;top:6px;font-family:"Noto Serif TC",serif;font-size:54px;font-weight:900;color:#D5DDE6}
+.k-pt h3{margin:0;font-size:30px;font-weight:900;color:var(--navy)}
+.k-pill{display:inline-block;margin:10px 0 6px;font-size:22px;font-weight:900;padding:3px 14px;border-radius:999px;color:#FFFFFF}
+.k-pt ul{margin:0;padding-left:26px}
+.k-pt li{font-size:22px;line-height:1.38;margin:0 0 8px}
+.k-cav{border-radius:14px;background:var(--terra-wash);border-left:10px solid var(--terra);padding:12px 18px;font-size:22px;line-height:1.4}
+.k-cav strong{color:var(--terra)}
+
+/* p23 用法流程 */
+.k-rg{display:grid;grid-template-columns:520px 70px 300px 70px 1fr;align-items:center;gap:0}
+.k-rgb{border-radius:16px;padding:18px 22px;text-align:center}
+.k-rgb h3{margin:0;font-size:30px;font-weight:900}
+.k-rgb p{margin:6px 0 0;font-size:26px}
+.k-rgb.iv{background:var(--navy-wash);color:var(--navy)}
+.k-rgb.sc{background:var(--sage-wash);color:var(--sage)}
+.k-rgm{height:200px;border-radius:20px;background:var(--navy);color:#FFFFFF;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.k-rgm b{font-family:"Noto Serif TC",serif;font-size:52px;font-weight:900}
+.k-rgm span{font-size:24px}
+.k-arr{text-align:center;font-size:48px;color:var(--muted)}
+
+/* p29 照護系統 */
+.k-cs h3{color:var(--navy)}
+.k-cs .k-big{font-size:48px;margin:10px 0 6px}
+.k-cs p{font-size:25px}
+.k-cs img{display:block;width:100%;height:150px;object-fit:contain;margin-top:auto;mix-blend-mode:multiply}
+
+/* p30 帶回家 */
+.k-tk{display:flex;gap:26px;align-items:center;padding:14px 0;border-bottom:2px solid var(--line)}
+.k-tk b{flex:none;width:68px;height:68px;border-radius:14px;background:var(--navy);color:#FFFFFF;font-family:"Noto Serif TC",serif;font-size:38px;display:flex;align-items:center;justify-content:center}
+.k-tk span{font-size:34px;line-height:1.35}
+.k-thanks{margin:22px 0 0;text-align:right;font-family:"Noto Serif TC",serif;font-size:42px;font-weight:900;color:var(--sage)}
+
+/* 急診流程 */
+.k-er{display:grid;grid-template-columns:600px 1fr 1fr;gap:16px 22px}
+.k-er .b{border-radius:16px;padding:16px 22px;font-size:27px;line-height:1.4;display:flex;align-items:center;justify-content:center;text-align:center}
+.k-er .navy{background:var(--navy);color:#FFFFFF;font-weight:900;grid-column:1 / span 3}
+.k-er .lt{background:var(--line-2)}
+.k-er .tr{background:var(--terra-wash);color:var(--terra);font-weight:900}
+.k-er .sg{background:var(--sage-wash);color:var(--sage);font-weight:900}
+.k-er .full{grid-column:1 / span 3}
+.k-er .r23{grid-column:2 / span 2}
+</style>
+</head>
+<body>
+<!-- v3（2026-10-27）：lecanemab／donanemab 長期追蹤 30 頁｜lecture-deck-workflow 樣板＋家屬講座視覺系統
+     由 build/build_v3.py 產生，勿手改；改字改 build_v3.py。v2 多檔版保留為 index_v2_multifile.html＋slides/ -->
+
+<main id="k-stage">
+
+<section class="k-slide k-cover" data-chapter="開場" data-title="封面">
+  <img class="k-cover-img" src="img/gen_cover.png" alt="腦中類澱粉斑塊被抗體清除，下方延伸一條追蹤之路" style="width:980px;left:auto;right:30px;top:40px;height:1000px">
+  <div class="k-cover-copy" style="width:980px">
+    <h1 style="font-size:118px">打完 18 個月<br>之後</h1>
+    <p class="k-lede">Lecanemab 與 Donanemab 的<br><strong>長期追蹤、真實世界資料</strong>與照護實務</p>
+  </div>
+  <div class="k-cover-meta">
+    <p class="k-who">陳培豪 醫師</p>
+    <p class="k-org">馬偕紀念醫院 神經科暨失智防治中心</p>
+    <p class="k-org">資料更新至 2026 年 10 月</p>
+  </div>
+  <template class="k-narr">
+    <p data-step="0">各位神經科的同仁大家好，我是馬偕紀念醫院失智防治中心的陳培豪。</p>
+    <p data-step="0">今天不再重談十八個月的樞紐試驗，而是談十八個月之後：延伸期資料、真實世界世代，以及門診要怎麼追蹤、怎麼治療、怎麼照護。</p>
+    <p data-step="0">接下來大約三十分鐘，分成長期療效、真實世界、如何追蹤、如何治療，以及照護系統五個部分。</p>
+  </template>
+</section>
+
+<section class="k-slide " data-chapter="開場" data-title="三個臨床問題">
+  <div class="k-head"><h2>打完 18 個月之後，門診最常被問的三件事</h2><p class="k-sub">點選卡片，看今天每個問題的重點答案</p></div>
+  <div class="k-body">
+<div class="k-g3 k-fill"><button class="k-flip k-qcard" data-reveal="1"><p class="k-no">1</p><span class="k-q">要繼續打嗎？<br>要打多久？</span><span class="k-a">・Lecanemab：持續型，18 個月後可改每 4 週靜脈維持（皮下劑型台灣尚未引進）<br>・Donanemab：限期型，PET 證實清除後可停藥<br>・延伸期效益擴大的幅度要打折看<br></span><span class="k-tap">點選翻面 ▸</span></button><button class="k-flip k-qcard" data-reveal="2"><p class="k-no">2</p><span class="k-q">MRI 要照多久？<br>出現 ARIA 怎麼辦？</span><span class="k-a">・ARIA-E 71% 在前 3 個月、92% 在前 6 個月出現<br>・無症狀輕度可續打；有症狀或中重度暫停<br>・停藥後 ARIA 仍可能進展<br></span><span class="k-tap">點選翻面 ▸</span></button><button class="k-flip k-qcard" data-reveal="3"><p class="k-no">3</p><span class="k-q">需要抗凝或中風時，<br>怎麼辦？</span><span class="k-a">・單一抗血小板可併用；抗凝要個別化<br>・大血管阻塞：直接取栓、不橋接溶栓<br>・無法用 MRI 排除 ARIA：一般不溶栓<br></span><span class="k-tap">點選翻面 ▸</span></button></div>
+
+<p class="k-cite">答案出處分別見第 7–10、18–22、27–28 頁</p>
+  </div>
+  <template class="k-narr">
+    <p data-step="0">打完十八個月之後，門診最常被問的有三件事。</p>
+    <p data-step="1">第一，要繼續打嗎？要打多久？lecanemab 是持續型，donanemab 是限期型。</p>
+    <p data-step="2">第二，MRI 要照多久、出現 ARIA 怎麼辦？大部分 ARIA 出現在前六個月，但停藥後仍可能進展。</p>
+    <p data-step="3">第三，病人需要抗凝或發生中風時怎麼辦？這三個問題，今天都會回答。</p>
+    <p data-step="3">請先記住這三個問題，講到對應的段落，我會再回來回答。</p>
+  </template>
+</section>
+
+<section class="k-slide " data-chapter="開場" data-title="2023–2026 里程碑">
+  <div class="k-head"><h2>三年內，給藥方式與監測規則已改了好幾次</h2><p class="k-sub">美國仿單與台灣臨床實務並不同步；本講以 2026 年版仿單為準，並標出台灣共識的差異</p></div>
+  <div class="k-body">
+<div class="k-tl"><div class="k-tev up" data-s="1"><b style="color:var(--navy)">2023-01</b><span>Leqembi 加速核准（美國）</span><i style="background:var(--navy)"></i></div><div class="k-tev dn" data-s="1"><b style="color:var(--navy)">2023-07</b><span>Leqembi 完全核准</span><i style="background:var(--navy)"></i></div><div class="k-tev up" data-s="1"><b style="color:var(--terra)">2024-07</b><span>Kisunla 核准（美國）</span><i style="background:var(--terra)"></i></div><div class="k-tev dn" data-s="2"><b style="color:var(--navy)">2025-01</b><span>Lecanemab 每 4 週靜脈維持</span><i style="background:var(--navy)"></i></div><div class="k-tev up" data-s="2"><b style="color:var(--sage)">2025 初</b><span>台灣 TFDA 核准兩藥</span><i style="background:var(--sage)"></i></div><div class="k-tev dn" data-s="2"><b style="color:var(--sage)">2025-06</b><span>台灣腦中風學會＋臨床失智症學會共識</span><i style="background:var(--sage)"></i></div><div class="k-tev up" data-s="2"><b style="color:var(--terra)">2025-07</b><span>Donanemab 改良滴定入仿單</span><i style="background:var(--terra)"></i></div><div class="k-tev dn" data-s="2"><b style="color:var(--navy)">2025-08</b><span>Lecanemab 皮下維持；加做第 1 個月 MRI</span><i style="background:var(--navy)"></i></div><div class="k-tev up" data-s="3"><b style="color:var(--navy)">2026-07</b><span>Lecanemab 皮下起始獲准</span><i style="background:var(--navy)"></i></div><div class="k-tev dn" data-s="3"><b style="color:var(--muted)">2026-11</b><span>CTAD 2026（波士頓）</span><i style="background:var(--muted)"></i></div></div>
+<div class="k-take" data-s="3">美國已可全程居家皮下注射；台灣尚未引進皮下劑型</div>
+<p class="k-cite">DailyMed LEQEMBI SPL v4–v24、KISUNLA SPL v8｜Eisai／Lilly 新聞稿｜Alzforum 2025-09、2026-07｜台灣共識 Formosan J Stroke 2025;7(2):83–98｜科技新報 2025-07-31</p>
+  </div>
+  <template class="k-narr">
+    <p data-step="0">先快速看這三年的變化。</p>
+    <p data-step="1">二零二三年 lecanemab 在美國核准，二零二四年七月 donanemab 核准。</p>
+    <p data-step="1">這兩支藥的核准，都是根據十八個月的樞紐試驗。</p>
+    <p data-step="2">二零二五年台灣核准兩支藥，六月腦中風學會和臨床失智症學會發表共識；美國則陸續加入每四週維持、改良滴定，以及提早到第一個月的 MRI。</p>
+    <p data-step="2">也就是說，同一個病人，打藥的方式和 MRI 的時間點，在這三年內可能已經改了兩三次。</p>
+    <p data-step="3">二零二六年七月，lecanemab 皮下起始也獲准，美國已經可以全程居家注射；台灣目前還沒有引進皮下劑型。</p>
+    <p data-step="3">所以今天的建議，都以二零二六年的仿單為準，再標出台灣共識不同的地方。</p>
+  </template>
+</section>
+
+<section class="k-slide k-mech" data-chapter="機轉" data-title="兩支抗體的標的">
+  <div class="k-head"><h2>兩支抗體打的是類澱粉聚集的不同階段</h2><p class="k-sub">兩者都是 IgG1，靠 Fc 端招募微膠細胞清除斑塊</p></div>
+  <div class="k-body">
+<div class="k-tabs"><button data-step-btn="1">Lecanemab</button><button data-step-btn="2">Donanemab</button><button data-step-btn="3">兩者共同下游</button></div><svg class="k-svg4" viewBox="0 0 1672 520" font-family="Noto Sans TC, Microsoft JhengHei">
+  <defs><marker id="ah4" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#5F6B77"/></marker></defs>
+  <g font-size="28" text-anchor="middle" fill="#1E2833">
+   <circle cx="110" cy="180" r="16" fill="#9AA9B8"/><text x="110" y="260">單體</text>
+   <g fill="#7F93A8"><circle cx="330" cy="168" r="15"/><circle cx="356" cy="186" r="15"/><circle cx="330" cy="200" r="15"/></g><text x="342" y="260">寡聚體</text>
+   <rect x="520" y="166" width="150" height="28" rx="14" fill="#4F6B86"/><text x="595" y="260">可溶性原纖維</text>
+   <g stroke="#2D4A69" stroke-width="10" stroke-linecap="round"><line x1="790" y1="150" x2="930" y2="150"/><line x1="790" y1="180" x2="930" y2="180"/><line x1="790" y1="210" x2="930" y2="210"/></g><text x="860" y="260">纖維</text>
+   <circle cx="1120" cy="180" r="78" fill="#24476E"/><circle cx="1120" cy="180" r="34" fill="#B5482F"/><text x="1120" y="300">斑塊（核心含焦麩胺酸 Aβ）</text>
+  </g>
+  <g stroke="#5F6B77" stroke-width="4" marker-end="url(#ah4)"><line x1="140" y1="180" x2="290" y2="180"/><line x1="380" y1="180" x2="505" y2="180"/><line x1="680" y1="180" x2="775" y2="180"/><line x1="945" y1="180" x2="1030" y2="180"/></g>
+  <g class="t-lec">
+   <path d="M595 110 L595 70 M595 70 L570 40 M595 70 L620 40" stroke="#3F7A55" stroke-width="10" fill="none" stroke-linecap="round"/>
+   <path d="M1090 92 L1080 52 M1080 52 L1058 26 M1080 52 L1100 24" stroke="#3F7A55" stroke-width="8" fill="none" stroke-linecap="round" opacity=".7"/>
+   <text x="595" y="22" font-size="30" font-weight="900" fill="#3F7A55" text-anchor="middle">Lecanemab：高親和力結合原纖維</text>
+  </g>
+  <g class="t-don">
+   <path d="M1150 150 L1190 110 M1190 110 L1230 120 M1190 110 L1200 70" stroke="#B5482F" stroke-width="10" fill="none" stroke-linecap="round"/>
+   <text x="1240" y="150" font-size="30" font-weight="900" fill="#B5482F">Donanemab：</text><text x="1240" y="188" font-size="30" font-weight="900" fill="#B5482F">焦麩胺酸 Aβ（N3pE）</text>
+   <text x="1240" y="226" font-size="26" fill="#1E2833">只在斑塊，清完標的就少</text>
+  </g>
+  <g class="t-fc">
+   <rect x="240" y="360" width="1200" height="130" rx="18" fill="#E8EFF7"/>
+   <g font-size="30" fill="#1E2833" text-anchor="middle">
+    <text x="440" y="415" font-weight="900" fill="#24476E">IgG1 Fc 端</text><text x="440" y="460">結合微膠細胞 Fcγ 受體</text>
+    <text x="836" y="415" font-weight="900" fill="#24476E">吞噬清除</text><text x="836" y="460">包含旁觀者清除</text>
+    <text x="1232" y="415" font-weight="900" fill="#24476E">類澱粉 PET 下降</text><text x="1232" y="460">18 個月 −59.1 CL（Clarity）</text>
+   </g>
+   <g stroke="#5F6B77" stroke-width="4" marker-end="url(#ah4)"><line x1="630" y1="425" x2="680" y2="425"/><line x1="995" y1="425" x2="1045" y2="425"/></g>
+  </g>
+ </svg>
+<div class="k-take" data-s="3">Lecanemab 偏好可溶性原纖維；donanemab 只認斑塊內的焦麩胺酸 Aβ，清完即可停</div>
+<p class="k-cite">Nakashima S, et al. Annu Rev Pathol 2026（Figure 1）. PMID 42887030｜van Dyck 2023 NEJM. PMID 36449413｜Rabinovici 2025 Donanemab AUR. PMID 40155270</p>
+  </div>
+  <template class="k-narr">
+    <p data-step="0">兩支抗體打的是類澱粉聚集的不同階段。</p>
+    <p data-step="1">lecanemab 以高親和力結合可溶性的原纖維。</p>
+    <p data-step="2">donanemab 只認斑塊裡、N 端被修飾的焦麩胺酸 Aβ，所以斑塊清完，標的就少了，這是它可以清除後停藥的生物學理由。</p>
+    <p data-step="3">兩者都是 IgG1，靠 Fc 端招募微膠細胞把斑塊吞噬清除；Clarity 十八個月，類澱粉 PET 下降五十九點一 Centiloid。</p>
+    <p data-step="3">這個標的差異，正好對應到後面要講的用法：一個持續打，一個清完就停。</p>
+  </template>
+</section>
+
+<section class="k-slide " data-chapter="機轉" data-title="ARIA 機轉">
+  <div class="k-head"><h2>ARIA 從哪裡來：抗體與血管壁類澱粉的發炎反應</h2><p class="k-sub">ARIA 與 CAA 相關發炎（CAAri）的影像表現非常相似</p></div>
+  <div class="k-body">
+<div class="k-split" style="grid-template-columns:760px 1fr;align-items:center"><div class="k-col" style="gap:14px"><div class="k-step5" data-s="1"><span class="n" style="background:var(--navy)">1</span><div><h3>血管壁本來就有類澱粉</h3><p>腦類澱粉血管病變（CAA）；ApoE ε4 帶因者血管類澱粉較多</p></div></div><div class="k-step5" data-s="2"><span class="n" style="background:var(--sage)">2</span><div><h3>抗體先結合血管壁類澱粉</h3><p>招募補體 C1q；清除斑塊時類澱粉被搬到血管壁，加重 CAA</p></div></div><div class="k-step5" data-s="3"><span class="n" style="background:var(--sage)">3</span><div><h3>發炎、血管通透性上升</h3><p>液體滲出 → ARIA-E：腦實質水腫、腦溝積液（FLAIR）</p></div></div><div class="k-step5" data-s="4"><span class="n" style="background:var(--terra)">4</span><div><h3>血管壁脆弱、紅血球外滲</h3><p>ARIA-H：微出血、表淺鐵沉積（GRE／SWI）；少數巨出血</p></div></div></div><div><svg viewBox="0 0 880 560" font-family="Noto Sans TC, Microsoft JhengHei" style="width:100%;height:470px">
+ <rect x="40" y="180" width="800" height="200" fill="#FBEDE8"/>
+ <rect x="40" y="150" width="800" height="30" fill="#C98A6B"/><rect x="40" y="380" width="800" height="30" fill="#C98A6B"/>
+ <text x="440" y="290" text-anchor="middle" font-size="30" fill="#8A4A2A">血管腔</text>
+ <g data-s="1" fill="#24476E"><circle cx="160" cy="165" r="16"/><circle cx="330" cy="395" r="16"/><circle cx="520" cy="165" r="16"/><circle cx="700" cy="395" r="16"/></g>
+ <g data-s="2" stroke="#3F7A55" stroke-width="7" fill="none" stroke-linecap="round">
+  <path d="M160 140 L160 110 M160 110 L146 90 M160 110 L174 90"/><path d="M520 140 L520 110 M520 110 L506 90 M520 110 L534 90"/>
+  <path d="M330 420 L330 450 M330 450 L316 470 M330 450 L344 470"/><path d="M700 420 L700 450 M700 450 L686 470 M700 450 L714 470"/>
+  <g fill="#3F7A55" stroke="none"><circle cx="196" cy="98" r="10"/><circle cx="556" cy="98" r="10"/></g></g>
+ <g data-s="3" fill="#7FB8C2" opacity=".85"><ellipse cx="250" cy="90" rx="60" ry="26"/><ellipse cx="610" cy="500" rx="70" ry="28"/></g>
+ <g data-s="4" fill="#8B1E1E"><circle cx="420" cy="120" r="9"/><circle cx="440" cy="100" r="7"/><circle cx="760" cy="460" r="9"/><circle cx="780" cy="480" r="6"/></g>
+</svg></div></div>
+<div class="k-take" data-s="4">CAA 的影像標記（微出血、表淺鐵沉積、白質病變）就是 ARIA 的危險因子</div>
+<p class="k-cite">台灣共識 Formosan J Stroke 2025;7(2):83–98 §3.2｜Nakashima 2026 Annu Rev Pathol. PMID 42887030｜補體 C1q：AD/PD 2026 會議資料（Lemere，小鼠）｜CTAD 2025 會議資料（aducanumab 解剖）</p>
+  </div>
+  <template class="k-narr">
+    <p data-step="0">ARIA 從哪裡來？</p>
+    <p data-step="1">血管壁上本來就有類澱粉，也就是腦類澱粉血管病變，ApoE ε4 帶因者特別多。</p>
+    <p data-step="1">ε4 帶因者的 ARIA 風險比較高，和血管壁上的類澱粉比較多有關。</p>
+    <p data-step="2">抗體先結合血管壁上的類澱粉、招募補體；清除斑塊時，類澱粉還會被搬到血管壁上。</p>
+    <p data-step="3">發炎讓血管通透性上升，液體滲出，就是 ARIA-E。</p>
+    <p data-step="4">血管壁變脆、紅血球外滲，就是 ARIA-H。所以 CAA 的影像標記，正是 ARIA 的危險因子。</p>
+    <p data-step="4">記住這個機轉，後面風險分層講到微出血、表淺鐵沉積和白質病變，道理都一樣。</p>
+  </template>
+</section>
+
+<section class="k-slide " data-chapter="長期療效" data-title="18 個月基準">
+  <div class="k-head"><h2>先記住 18 個月的基準：差異約 0.45–0.7 分 CDR-SB</h2><p class="k-sub">兩個樞紐試驗的主要結果與安全性；後面的延伸期與真實世界都拿這兩個數字比較</p></div>
+  <div class="k-body">
+<div class="k-g2"><div class="k-trial" data-s="1"><h3 style="border-color:var(--sage)">Clarity AD（lecanemab）<small>n＝1,795</small></h3><p class="k-lab">CDR-SB 差異</p><p class="k-num1" style="color:var(--sage)">−0.45</p><p class="k-ci">95% CI −0.67 至 −0.23；安慰劑 1.66 分</p><div class="k-g3 k-row3"><div><p class="k-lab">ARIA-E</p><p class="k-v2">12.6%</p><p class="k-ci">有症狀 2.8%</p></div><div><p class="k-lab">輸注反應</p><p class="k-v2">26.4%</p></div><div><p class="k-lab">其他</p><p class="k-ci">類澱粉 −59.1 CL；CDR-G 惡化 HR 0.69（探索性）</p></div></div></div><div class="k-trial" data-s="2"><h3 style="border-color:var(--terra)">TRAILBLAZER-ALZ 2（donanemab）<small>n＝1,736</small></h3><p class="k-lab">CDR-SB 差異</p><p class="k-num1" style="color:var(--terra)">−0.70</p><p class="k-ci">95% CI −0.95 至 −0.45；安慰劑 2.42 分（整體族群）</p><div class="k-g3 k-row3"><div><p class="k-lab">ARIA-E</p><p class="k-v2">24.0%</p><p class="k-ci">有症狀 6.1%</p></div><div><p class="k-lab">輸注反應</p><p class="k-v2">8.7%</p></div><div><p class="k-lab">其他</p><p class="k-ci">治療相關死亡 3 例 vs 安慰劑 1 例</p></div></div></div></div>
+<div class="k-take" data-s="3">18 個月的效益約為安慰劑組惡化量的 27%（lecanemab）與 29%（donanemab）</div>
+<p class="k-cite">van Dyck CH, et al. N Engl J Med 2023. PMID 36449413｜Sims JR, et al. JAMA 2023. PMID 37459141｜Donanemab 有症狀 ARIA-E 52/853：台灣共識 2025 表列 6.1%</p>
+  </div>
+  <template class="k-narr">
+    <p data-step="0">先記住十八個月的基準。</p>
+    <p data-step="0">CDR-SB 是臨床失智評分六個項目的總和，滿分十八分，分數越高越嚴重。</p>
+    <p data-step="1">Clarity AD：CDR-SB 差零點四五分，ARIA-E 百分之十二點六，輸注反應百分之二十六點四。</p>
+    <p data-step="1">lecanemab 的安慰劑組，十八個月惡化一點六六分。</p>
+    <p data-step="2">TRAILBLAZER-ALZ 2：差零點七零分，ARIA-E 百分之二十四，有症狀的百分之六點一。</p>
+    <p data-step="2">donanemab 的安慰劑組，十八個月惡化二點四二分。</p>
+    <p data-step="3">換算成安慰劑組的惡化量，大約減緩百分之二十七和百分之二十九。後面的延伸期和真實世界，都拿這兩個數字來比。</p>
+    <p data-step="3">這兩個數字看起來不大，但它們是後面所有延伸期與真實世界資料的比較基準。</p>
+  </template>
+</section>
+
+<section class="k-slide " data-chapter="長期療效" data-title="Lecanemab 4 年">
+  <div class="k-head"><h2>Lecanemab 4 年：與 ADNI 的差距從 0.52 擴大到 1.75 分</h2><p class="k-sub">Clarity AD 延伸期持續治療者，與外部自然病程世代比較（未經隨機分派）</p></div>
+  <div class="k-body">
+<div class="k-split" style="grid-template-columns:900px 1fr;align-items:start;gap:60px"><div><div class="k-legend2"><span><i style="background:var(--navy)"></i>vs ADNI</span><span><i style="background:var(--terra)"></i>vs BioFINDER</span><span class="k-conf">4 年為會議資料</span></div><div class="k-vb" style="height:400px;gap:70px" data-s="1"><div class="k-vg"><div class="k-vc" style="width:96px"><b style="color:var(--navy)">0.52</b><i style="width:96px;height:22.6%;background:var(--navy)"></i></div><div class="k-vc" style="width:96px"><b style="color:var(--terra)">0.57</b><i style="width:96px;height:24.8%;background:var(--terra)"></i></div></div><div class="k-vg"><div class="k-vc" style="width:96px"><b style="color:var(--navy)">1.01</b><i style="width:96px;height:43.9%;background:var(--navy)"></i></div><div class="k-vc" style="width:96px"><b style="color:var(--terra)">1.40</b><i style="width:96px;height:60.9%;background:var(--terra)"></i></div></div><div class="k-vg"><div class="k-vc" style="width:96px"><b style="color:var(--navy)">1.75</b><i style="width:96px;height:76.1%;background:var(--navy)"></i></div><div class="k-vc" style="width:96px"><b style="color:var(--terra)">2.17</b><i style="width:96px;height:94.3%;background:var(--terra)"></i></div></div></div><div class="k-vlabs" style="gap:70px"><span style="width:204px">18 個月</span><span style="width:204px">36 個月</span><span style="width:204px">48 個月</span></div><p class="k-hint">CDR-SB 差距（分；正值＝治療組惡化較少）</p></div><div class="k-col"><div class="k-evi" data-s="2"><span class="k-big2">−34%</span><p>惡化到下一分期的風險（vs ADNI）<br>3 年 −30% → 4 年 −34%</p></div><div class="k-evi" data-s="3" style="background:var(--sage-wash)"><span class="k-big2 k-s">69%</span><p>低 tau 亞組（SUVR &lt;1.06）4 年未退步；56% 較基線改善，人數僅數十人</p></div><div class="k-evi" data-s="4" style="background:var(--terra-wash)"><span class="k-big2 k-t">478</span><p>治療組 859 → 478 人<br>ADNI 對照 436 → 98（流失 78%）</p></div></div></div>
+<div class="k-take" data-s="4">持續治療的方向一致；但 4 年時治療組只剩 478 人，ADNI 只剩 98 人</div>
+<p class="k-cite">van Dyck CH, et al. Alzheimers Dement 2025. PMID 41355080（36 個月）｜4 年數據：AAIC 2025 會議資料、Eisai 新聞稿 2025-07-31、Alzforum 2025-08-07</p>
+  </div>
+  <template class="k-narr">
+    <p data-step="0">先看 lecanemab 的延伸期。這是 Clarity AD 持續治療者和外部自然病程世代的比較，沒有隨機分派。</p>
+    <p data-step="1">和 ADNI 相比，CDR-SB 差距從十八個月的零點五二、三十六個月的一點零一，到四年擴大為一點七五分；和 BioFINDER 比，差距更大。</p>
+    <p data-step="2">惡化到下一個臨床分期的風險，三年降低百分之三十，四年百分之三十四。</p>
+    <p data-step="2">風險降低百分之三十四，代表四年之內，比較少人從 MCI 進展到失智，或從輕度進展到中度。</p>
+    <p data-step="3">低 tau 亞組四年仍有百分之六十九沒有退步，不過人數只有數十人。</p>
+    <p data-step="3">低 tau 亞組中，百分之五十六甚至比基線還進步。</p>
+    <p data-step="4">最後一定要看流失：治療組從八百五十九人剩四百七十八人，ADNI 對照從四百三十六人只剩九十八人。四年的數字是 AAIC 2025 的會議資料。</p>
+    <p data-step="4">所以這張圖要這樣看：方向是一致的，但越往後，比較的人越少，誤差也越大。</p>
+  </template>
+</section>
+
+<section class="k-slide " data-chapter="長期療效" data-title="Donanemab 3 年">
+  <div class="k-head"><h2>Donanemab 3 年：限期給藥後，差距仍持續拉開</h2><p class="k-sub">TRAILBLAZER-ALZ 2 延伸期；達清除標準者改打安慰劑，延遲起始組於延伸期才開始用藥</p></div>
+  <div class="k-body">
+<div class="k-split" style="grid-template-columns:920px 1fr;align-items:start;gap:50px"><div><p class="k-lead" style="font-size:28px;font-weight:900">早期起始組 vs 加權 ADNI 的 CDR-SB 差距（負值＝惡化較少）</p><svg viewBox="0 0 940 470" style="width:900px;height:410px" font-family="Noto Sans TC, Microsoft JhengHei"><line x1="70" x2="900" y1="40" y2="40" stroke="#E3E6E9" stroke-width="2"/><text x="56" y="49" text-anchor="end" font-size="24" fill="#5F6B77">0.0</text><line x1="70" x2="900" y1="132.0" y2="132.0" stroke="#E3E6E9" stroke-width="2"/><text x="56" y="141.0" text-anchor="end" font-size="24" fill="#5F6B77">-0.4</text><line x1="70" x2="900" y1="224.0" y2="224.0" stroke="#E3E6E9" stroke-width="2"/><text x="56" y="233.0" text-anchor="end" font-size="24" fill="#5F6B77">-0.8</text><line x1="70" x2="900" y1="316.0" y2="316.0" stroke="#E3E6E9" stroke-width="2"/><text x="56" y="325.0" text-anchor="end" font-size="24" fill="#5F6B77">-1.2</text><line x1="70" x2="900" y1="408.0" y2="408.0" stroke="#E3E6E9" stroke-width="2"/><text x="56" y="417.0" text-anchor="end" font-size="24" fill="#5F6B77">-1.6</text><text x="90" y="448.0" text-anchor="middle" font-size="26" fill="#5F6B77">6 月</text><text x="246" y="448.0" text-anchor="middle" font-size="26" fill="#5F6B77">12 月</text><text x="402" y="448.0" text-anchor="middle" font-size="26" fill="#5F6B77">18 月</text><text x="558" y="448.0" text-anchor="middle" font-size="26" fill="#5F6B77">24 月</text><text x="870" y="448.0" text-anchor="middle" font-size="26" fill="#5F6B77">36 月</text><g data-s="1"><polyline points="90,86.0 246,155.0 402,178.0 558,270.0 870,316.0" fill="none" stroke="#B5482F" stroke-width="6"/><circle cx="90" cy="86.0" r="9" fill="#B5482F"/><text x="90" y="130.0" text-anchor="middle" font-size="30" font-weight="900" fill="#1E2833">-0.2</text><circle cx="246" cy="155.0" r="9" fill="#B5482F"/><text x="246" y="199.0" text-anchor="middle" font-size="30" font-weight="900" fill="#1E2833">-0.5</text><circle cx="402" cy="178.0" r="9" fill="#B5482F"/><text x="402" y="222.0" text-anchor="middle" font-size="30" font-weight="900" fill="#1E2833">-0.6</text><circle cx="558" cy="270.0" r="9" fill="#B5482F"/><text x="558" y="314.0" text-anchor="middle" font-size="30" font-weight="900" fill="#1E2833">-1.0</text><circle cx="870" cy="316.0" r="9" fill="#B5482F"/><text x="870" y="360.0" text-anchor="middle" font-size="30" font-weight="900" fill="#1E2833">-1.2</text></g></svg><table class="k-tb sm" data-s="4"><tr><th>人數</th><th>基線</th><th>6</th><th>12</th><th>18</th><th>24</th><th>36 月</th></tr><tr><td class="b">早期起始組</td><td>794</td><td>731</td><td>650</td><td>604</td><td>507</td><td class="b k-t">417</td></tr><tr><td class="b">ADNI（ESS）</td><td>268</td><td>255</td><td>237</td><td>200</td><td>183</td><td>122</td></tr></table></div><div class="k-col"><div class="k-evi" data-s="2" style="background:var(--terra-wash)"><span class="k-big2 k-t">HR 0.73</span><p>CDR-G 惡化到下一分期<br>早期 vs 延遲起始，3 年，p&lt;0.001</p></div><div class="k-evi" data-s="3" style="background:var(--sage-wash)"><span class="k-big2 k-s">76.4%</span><p>用藥 76 週達清除（&lt;24.1 CL）；延遲起始組於延伸期 76.5%</p></div><div class="k-evi" data-s="3"><span class="k-big2">−1.3</span><p>52 週內完成療程者，3 年差距（95% CI −1.9 至 −0.7）</p></div></div></div>
+<div class="k-take" data-s="4">限期給藥後效益未消失；但 36 個月早期起始組只剩 53%（417/794）</div>
+<p class="k-cite">Zimmer JA, et al. J Prev Alzheimers Dis 2026;13:100446（Fig 2a、Fig 3、Fig 4b）. PMID 41330788｜ESS：加權後有效樣本數</p>
+  </div>
+  <template class="k-narr">
+    <p data-step="0">donanemab 的延伸期，是達到清除標準的人改打安慰劑，延遲起始組在延伸期才開始用藥。</p>
+    <p data-step="1">和加權的 ADNI 相比，CDR-SB 差距從六個月的零點二，擴大到三十六個月的一點二分。</p>
+    <p data-step="2">早期起始對延遲起始，惡化到下一分期的風險比是零點七三。</p>
+    <p data-step="2">風險比零點七三，大約是惡化到下一分期的風險降低四分之一。</p>
+    <p data-step="3">用藥七十六週時，百分之七十六點四達到清除；五十二週內就完成療程的人，三年效益相近。</p>
+    <p data-step="3">延遲起始組在延伸期開始用藥後，也有百分之七十六點五達到清除。</p>
+    <p data-step="4">同樣要看人數：早期起始組三十六個月只剩四百一十七人，大約一半。</p>
+    <p data-step="4">換句話說，限期給藥之後效益沒有消失，但三年後還能比較的人只剩一半左右。</p>
+  </template>
+</section>
+
+<section class="k-slide " data-chapter="長期療效" data-title="停藥後再累積">
+  <div class="k-head"><h2>Donanemab 停藥後，類澱粉以每年約 2.4 CL 的速度回升</h2><p class="k-sub">52 週即達清除標準而停藥者（n＝325），追蹤到第 154 週</p></div>
+  <div class="k-body">
+<div class="k-split" style="grid-template-columns:820px 1fr;align-items:start;gap:50px"><div><img class="k-orig zoom" src="img/tb2lte_fig4c.png" alt="TRAILBLAZER-ALZ 2 延伸期 Fig 4c"><p class="k-figcap">原文 Fig 4c：52 週完成療程者的平均 Centiloid（虛線＝24.1 CL；點圖放大）</p></div><div class="k-col" style="gap:0"><div class="k-row9" data-s="1"><b style="color:var(--navy)">2.4 CL/年</b><p>中位再累積速率（模型推估），與未治療者的自然累積相當</p></div><div class="k-row9" data-s="2"><b style="color:var(--sage)">82.6%</b><p>第 154 週仍 &lt;24.1 CL；平均 10.99 CL<span class="k-conf">會議</span></p></div><div class="k-row9" data-s="3"><b style="color:var(--terra)">p-tau217 ↑</b><p>延伸期第 76 週血漿 p-tau217、GFAP 輕度回升<span class="k-conf">會議</span></p></div><div class="k-row9" data-s="3"><b style="color:var(--navy)">約 10 年</b><p>aducanumab 解剖推估回到原斑塊負荷所需時間<span class="k-conf">會議</span></p></div><div class="k-row9" data-s="4"><b style="color:var(--navy)">1,400 mg</b><p>停藥滿 1 年給單次劑量的維持研究，n＝200，進行中</p></div></div></div>
+<div class="k-take" data-s="4">停藥後回升很慢，但不是零：停藥者仍要有追蹤計畫</div>
+<p class="k-cite">Zimmer 2026. PMID 41330788（Fig 4c，CC BY）｜154 週：AD/PD 2026 會議資料（Clinical Trials Arena 2026-03-26）｜生物標記與單次維持研究：AAIC 2026 會議資料（Alzforum 2026-07-31）｜解剖：CTAD 2025 會議資料</p>
+  </div>
+  <template class="k-narr">
+    <p data-step="0">donanemab 停藥之後，類澱粉會回來嗎？</p>
+    <p data-step="1">會，但很慢：中位數每年大約二點四 Centiloid，和未治療者的自然累積差不多。</p>
+    <p data-step="1">Centiloid 是類澱粉 PET 的標準化單位，二十四點一以下，通常視為已經清除。</p>
+    <p data-step="2">一百五十四週時，百分之八十二點六仍在清除閾值以下。</p>
+    <p data-step="2">這些人的平均值是十點九九 Centiloid。</p>
+    <p data-step="3">不過，血漿 p-tau217 和 GFAP 在延伸期後段有輕度回升；解剖推估，回到原本的斑塊負荷大約要十年。</p>
+    <p data-step="4">目前有停藥一年後給單次一千四百毫克的維持研究在進行。停藥，不等於結案。</p>
+    <p data-step="4">實務上，停藥的病人仍要定期回診、做臨床評估，而不是從此不再追蹤。</p>
+  </template>
+</section>
+
+<section class="k-slide " data-chapter="長期療效" data-title="延伸期要打折">
+  <div class="k-head"><h2>延伸期的「效益擴大」要打折：同一批人進入延伸期後惡化變快</h2><p class="k-sub">以公開數據重建 CDR-SB 軌跡：早期起始組的年化惡化速度，雙盲期 vs 開放延伸期</p></div>
+  <div class="k-body">
+<div class="k-split" style="grid-template-columns:860px 1fr;align-items:start;gap:56px"><div><div class="k-legend2"><span><i style="background:var(--sage)"></i>雙盲期</span><span><i style="background:var(--terra)"></i>開放延伸期</span><span><i style="background:var(--muted)"></i>雙盲期安慰劑</span></div><div class="k-vb" style="height:380px;gap:90px" data-s="1"><div class="k-vg"><div class="k-vc" style="width:96px"><b style="color:var(--sage)">0.78</b><i style="width:96px;height:39.0%;background:var(--sage)"></i></div><div class="k-vc" style="width:96px"><b style="color:var(--terra)">1.30</b><i style="width:96px;height:65.0%;background:var(--terra)"></i></div><div class="k-vc" style="width:96px"><b style="color:var(--muted)">1.24</b><i style="width:96px;height:62.0%;background:var(--muted)"></i></div></div><div class="k-vg"><div class="k-vc" style="width:96px"><b style="color:var(--sage)">1.07</b><i style="width:96px;height:53.5%;background:var(--sage)"></i></div><div class="k-vc" style="width:96px"><b style="color:var(--terra)">1.73</b><i style="width:96px;height:86.5%;background:var(--terra)"></i></div></div></div><div class="k-vlabs" style="gap:90px"><span style="width:312px">Lecanemab</span><span style="width:312px">Donanemab</span></div><p class="k-hint">CDR-SB 每年惡化分數（越高＝惡化越快）；安慰劑斜率為 lecanemab 試驗合併分析</p></div><div class="k-col"><div class="k-card navy" data-s="2"><h3>對照不是隨機</h3><p>延伸期與 ADNI、BioFINDER 比；Clarity 安慰劑組本身就比 ADNI 惡化得慢</p></div><div class="k-card navy" data-s="2"><h3>兩邊流失不同</h3><p>Donanemab 36 個月 794→417、ADNI 268→122；Clarity 4 年 859→478</p></div><div class="k-card navy" data-s="3"><h3>RCT 合併仍很小</h3><p>Cochrane（17 RCT、20,342 人）18 個月 CDR-SB SMD −0.12，低確定性；含多支已失敗抗體</p></div></div></div>
+<div class="k-take warn" data-s="3">延伸期支持「方向一致、早用較好」，不足以精確量化效益擴大的幅度</div>
+<p class="k-cite">Dwivedi AK, et al. BMJ Neurol Open 2026. PMID 42602524（模擬重建＋觀察值）｜Hazan J, et al. J Prev Alzheimers Dis 2026. PMID 41722274、42096938｜Cochrane 2026. PMID 41985900</p>
+  </div>
+  <template class="k-narr">
+    <p data-step="0">延伸期的效益擴大，要打個折看。</p>
+    <p data-step="1">用公開數據重建：lecanemab 早期起始組，雙盲期每年惡化零點七八分，進入延伸期變成一點三零分，接近安慰劑的一點二四；donanemab 從一點零七變成一點七三。</p>
+    <p data-step="1">換句話說，同一批病人進入開放延伸期之後，惡化的速度變快了。</p>
+    <p data-step="2">原因包括：對照不是隨機，Clarity 安慰劑組本身就比 ADNI 惡化得慢；兩邊的流失也不同。</p>
+    <p data-step="3">Cochrane 合併十七個隨機試驗，十八個月的效果量很小、確定性低，但它也合併了很多已經失敗的抗體。結論是：方向一致、早用較好，但量級還不能精確估計。</p>
+    <p data-step="3">所以向病人說明時，可以說早用、持續的方向是對的，但不要承諾效益會一直擴大。</p>
+  </template>
+</section>
+
+<section class="k-slide " data-chapter="長期療效" data-title="誰獲益最多">
+  <div class="k-head"><h2>誰獲益最多：越早、tau 越少、共病越少</h2><p class="k-sub">長期資料一致指向：治療起點的病理負荷與共病，決定曲線能被拉平多少</p></div>
+  <div class="k-body">
+<div class="k-g4 k-fill"><div class="k-bcard" data-s="1" style="border-top-color:var(--sage)"><h3>低 tau</h3><p class="k-bv" style="color:var(--sage)">約 75% vs 55%</p><p>18 個月 CDR-SB 未退步（lecanemab vs 安慰劑），tau PET SUVR &lt;1.06</p><p class="k-src">AAIC 2025 會議資料（Clarity tau PET 子研究）<span class="k-conf">會議</span></p></div><div class="k-bcard" data-s="2" style="border-top-color:var(--sage)"><h3>MMSE ≥24</h3><p class="k-bv" style="color:var(--sage)">+0.3 vs −2.6</p><p>每年 MMSE 變化：基線 ≥24（n＝217） vs &lt;24（n＝127）</p><p class="k-src">Columbia 世代，AAIC 2026 會議資料<span class="k-conf">會議</span></p></div><div class="k-bcard" data-s="3" style="border-top-color:var(--navy)"><h3>內側顳葉萎縮輕</h3><p class="k-bv" style="color:var(--navy)">+0.64 vs +2.62</p><p>12 個月 CDR-SB 惡化：VSRAD Z&lt;3 vs Z≥3（lecanemab）</p><p class="k-src">Kujuro Y, et al. J Prev Alzheimers Dis 2026. PMID 42892274</p></div><div class="k-bcard" data-s="3" style="border-top-color:var(--terra)"><h3>沒有 Lewy body 共病</h3><p class="k-bv" style="color:var(--terra)">減緩 12% vs 0%</p><p>α-synuclein SAA 陰性 vs 陽性（gantenerumab 回溯；donanemab 試驗進行中）</p><p class="k-src">AD/PD 2026 會議資料<span class="k-conf">會議</span></p></div></div>
+<div class="k-take" data-s="4">早期治療不只效益較大，有症狀 ARIA 也少很多（27% vs 1.8%）</div>
+<p class="k-cite">見各卡片；另 Paczynski M, et al. JAMA Neurol 2025. PMID 40354064：有症狀 ARIA 輕度失智 27% vs MCI／極輕度 1.8%</p>
+  </div>
+  <template class="k-narr">
+    <p data-step="0">誰獲益最多？長期資料一致指向：越早、tau 越少、共病越少。</p>
+    <p data-step="1">低 tau 亞組，十八個月約百分之七十五沒有退步，安慰劑約百分之五十五。</p>
+    <p data-step="1">tau 越少，代表病程越早，治療越有機會延緩惡化。</p>
+    <p data-step="2">MMSE 二十四分以上的人，一年後還微升零點三分；低於二十四分的人，每年掉二點六分。</p>
+    <p data-step="3">內側顳葉萎縮較輕、沒有 Lewy body 共病的人，效果也比較好。</p>
+    <p data-step="4">而且早期治療不只效益大，有症狀 ARIA 也少很多：輕度失智百分之二十七，MCI 和極輕度只有百分之一點八。</p>
+    <p data-step="4">這也是為什麼篩選病人時，越早期、病理負荷越輕，越值得治療。</p>
+  </template>
+</section>
+
+<section class="k-slide k-cohpage" data-chapter="真實世界" data-title="真實世界世代" data-minsteps="2">
+  <div class="k-head"><h2>真實世界世代已超過萬人：亞洲 ARIA 普遍較低</h2><p class="k-sub">Lecanemab 為主的代表性世代；「E」＝ARIA-E，其餘為任何 ARIA</p></div>
+  <div class="k-body">
+<table class="k-tb k-coh" id="coh"><tr><th>世代</th><th>地區</th><th>人數</th><th>追蹤</th><th>ARIA</th><th>有症狀</th><th>出處</th></tr><tr class="asia"><td class="b">日本全例上市後監測</td><td>日本</td><td>2,672</td><td>28 週</td><td class="b k-aria">7.1%</td><td>0.5%</td><td class="k-srcc">Iwata 2026 PMID 41849958</td></tr><tr class="us"><td class="b">ALZ-NET 登錄（lecanemab）<span class="k-conf">會議</span></td><td>美國</td><td>1,775</td><td>≈1 年</td><td class="b k-aria">E 6%</td><td>1.5%</td><td class="k-srcc">AAIC 2026</td></tr><tr class="asia"><td class="b">中國多中心</td><td>中國</td><td>1,042</td><td>12 月</td><td class="b k-aria">7.9%</td><td>—</td><td class="k-srcc">Wu H 2026 PMID 42557932</td></tr><tr class="asia"><td class="b">K-ROAD（基因型滴定）</td><td>韓國</td><td>508</td><td>1 年</td><td class="b k-aria">E 3%</td><td>—</td><td class="k-srcc">Kang 2026 PMID 42642841</td></tr><tr class="us"><td class="b">Mass General Brigham<span class="k-conf">會議</span></td><td>美國</td><td>468</td><td>10 月</td><td class="b k-aria">E 12%／H 22%</td><td>5%</td><td class="k-srcc">AAIC 2026</td></tr><tr class="us"><td class="b">LEADER（Eisai）<span class="k-conf">會議</span></td><td>美國</td><td>432</td><td>17 月</td><td class="b k-aria">12.3%</td><td>≈1%</td><td class="k-srcc">AAIC 2026</td></tr><tr class="us"><td class="b">WashU</td><td>美國</td><td>234</td><td>6.5 月</td><td class="b k-aria">22%</td><td>5.7%</td><td class="k-srcc">Paczynski 2025 PMID 40354064</td></tr><tr class="us"><td class="b">Duke</td><td>美國</td><td>230</td><td>13 月</td><td class="b k-aria">24.3%</td><td>—</td><td class="k-srcc">Liu 2026 PMID 42746606</td></tr><tr class="us"><td class="b">Norton（2 年）</td><td>美國</td><td>187</td><td>24 月</td><td class="b k-aria">22.3%</td><td>2.9%</td><td class="k-srcc">Shields 2026 PMID 41581261</td></tr><tr class="asia"><td class="b">金澤大學</td><td>日本</td><td>117</td><td>≥18 月</td><td class="b k-aria">12.9%</td><td>—</td><td class="k-srcc">Noguchi-Shinohara 2026 PMID 42664573</td></tr></table>
+
+<p class="k-cite">各列出處如表；有症狀 ARIA：日本 PMS 12/2,634、Norton 5/175 依原文換算｜WashU 為有症狀 ARIA；Duke 另有 5 例死亡（2 例 ARIA 相關）</p>
+  </div>
+  <template class="k-narr">
+    <p data-step="0">真實世界的世代，加起來已經超過一萬人。</p>
+    <p data-step="1">亞洲普遍比較低：日本全例監測兩千六百多人，ARIA 百分之七點一；韓國用基因型導向滴定，ARIA-E 只有百分之三。</p>
+    <p data-step="1">日本的全例監測，是上市後所有用藥病人都要登錄的監測。</p>
+    <p data-step="2">美國的大型學術中心，則在百分之二十二到二十四之間。差異從哪裡來，後面幾頁說明。</p>
+    <p data-step="2">這張表的重點不是哪個世代比較好，而是選病和偵測方式不同，ARIA 的數字就會差很多。</p>
+  </template>
+</section>
+
+<section class="k-slide " data-chapter="真實世界" data-title="臨床分期穩定率">
+  <div class="k-head"><h2>真實世界：多數病人在 1–2 年內維持原分期</h2><p class="k-sub">臨床分期（MCI／輕度失智）維持或改善的比例；皆無安慰劑對照，只能和 Clarity 安慰劑組粗略對照</p></div>
+  <div class="k-body">
+<div class="k-split" style="grid-template-columns:1000px 1fr;align-items:start;gap:56px"><div><div class="k-vb" style="height:360px;gap:46px" data-s="1"><div class="k-vc" style="width:130px"><b style="color:var(--sage)">83%</b><i style="width:130px;height:83%;background:var(--sage)"></i></div><div class="k-vc" style="width:130px"><b style="color:var(--sage)">84%</b><i style="width:130px;height:84%;background:var(--sage)"></i></div><div class="k-vc" style="width:130px"><b style="color:var(--sage)">88%</b><i style="width:130px;height:88%;background:var(--sage)"></i></div><div class="k-vc" style="width:130px"><b style="color:var(--muted)">75%</b><i style="width:130px;height:75%;background:var(--muted)"></i></div><div class="k-vc" style="width:130px"><b style="color:var(--muted)">68%</b><i style="width:130px;height:68%;background:var(--muted)"></i></div></div><div class="k-vlabs" style="gap:46px"><span style="width:130px;font-size:24px;line-height:1.25">LEADER<br>2 年<br><small style="font-weight:500;color:var(--muted);font-size:20px">n＝203</small></span><span style="width:130px;font-size:24px;line-height:1.25">ALZ-NET<br>18 月<br><small style="font-weight:500;color:var(--muted);font-size:20px">n＝78</small></span><span style="width:130px;font-size:24px;line-height:1.25">中國<br>12 月<br><small style="font-weight:500;color:var(--muted);font-size:20px">lecanemab</small></span><span style="width:130px;font-size:24px;line-height:1.25">中國<br>12 月<br><small style="font-weight:500;color:var(--muted);font-size:20px">標準治療</small></span><span style="width:130px;font-size:24px;line-height:1.25">Clarity<br>18 月<br><small style="font-weight:500;color:var(--muted);font-size:20px">安慰劑</small></span></div><p class="k-hint">維持或改善原臨床分期的比例 <span class="k-conf">會議資料</span></p></div><div class="k-panel butter" data-s="2"><h3>要怎麼看？</h3><p>・沒有安慰劑，標準治療組不能控制安慰劑效應</p><p>・ALZ-NET 18 個月只剩 78 人</p><p>・LEADER 為藥廠贊助、醫師判定分期</p><p>・LEADER 2 年：MMSE（n＝166）22 個月 −1.6 分</p></div></div>
+<div class="k-take warn" data-s="2">穩定率約 83–88%，但這是選擇過、留下來的病人</div>
+<p class="k-cite">LEADER、ALZ-NET、中國 29 中心：AAIC 2026 會議資料（Alzforum 2026-07-31）｜Clarity 安慰劑組 18 個月 68%：同報導引述</p>
+  </div>
+  <template class="k-narr">
+    <p data-step="0">真實世界的另一個問題：病人有沒有維持原本的分期？</p>
+    <p data-step="1">LEADER 兩年百分之八十三、ALZ-NET 十八個月百分之八十四、中國十二個月百分之八十八，都比 Clarity 安慰劑組的百分之六十八高。</p>
+    <p data-step="1">這裡的穩定，指的是維持或改善原本的臨床分期。</p>
+    <p data-step="2">但要誠實講限制：沒有安慰劑、人數隨時間快速減少，LEADER 是藥廠贊助、分期由醫師判定。這是選擇過、留下來的病人。</p>
+    <p data-step="2">所以這些數字可以拿來和病人討論期待，但不能當成療效的證明。</p>
+  </template>
+</section>
+
+<section class="k-slide " data-chapter="真實世界" data-title="持續治療">
+  <div class="k-head"><h2>持續治療率：18 個月約八成，停藥主因是 ARIA 與動機</h2><p class="k-sub">美國申報資料的 Kaplan–Meier 持續率，以及單中心世代的停藥原因</p></div>
+  <div class="k-body">
+<div class="k-split" style="grid-template-columns:720px 1fr;align-items:start;gap:70px"><div><p class="k-lead" style="font-size:30px;font-weight:900">仍在治療的比例 <span class="k-conf">會議資料</span></p><div class="k-vb" style="height:340px;gap:60px" data-s="1"><div class="k-vc" style="width:140px"><b style="color:var(--sage)">78.4%</b><i style="width:140px;height:78.4%;background:var(--sage)"></i></div><div class="k-vc" style="width:140px"><b style="color:var(--sage)">71.7%</b><i style="width:140px;height:71.7%;background:var(--sage)"></i></div><div class="k-vc" style="width:140px"><b style="color:var(--sage)">67.3%</b><i style="width:140px;height:67.3%;background:var(--sage)"></i></div></div><div class="k-vlabs" style="gap:60px"><span style="width:140px">18 月</span><span style="width:140px">20 月</span><span style="width:140px">24 月</span></div></div><div data-s="2"><p class="k-lead" style="font-size:30px;font-weight:900;margin-bottom:14px">金澤大學停藥原因（停藥 21.9%）</p><div class="k-bars sm" style="--x:0"><div class="k-bar"><span class="k-lab">ARIA</span><div class="k-trk"><div class="k-fil terra" style="width:92%"></div></div><span class="k-val">27.7%</span></div><div class="k-bar"><span class="k-lab">動機下降</span><div class="k-trk"><div class="k-fil " style="width:74%"></div></div><span class="k-val">22.2%</span></div><div class="k-bar"><span class="k-lab">認知退化</span><div class="k-trk"><div class="k-fil " style="width:37%"></div></div><span class="k-val">11.1%</span></div></div><p class="k-small" style="margin-top:24px">中國 1,042 人：停藥 16.5%，<strong class="k-t">主因是經濟負擔</strong><br>Norton 187 人：停藥 17.1%，病程進展 31.2%、ARIA 惡化 28.1%</p></div></div>
+<div class="k-take" data-s="3">18 個月後幾乎都選擇續打：金澤 48/48、Clarity 95% 進入延伸期</div>
+<p class="k-cite">Eisai／AD/PD 2026 會議資料（PurpleLab 申報資料，2023 年起始 n＝371）｜Noguchi-Shinohara 2026. PMID 42664573｜Wu H 2026. PMID 42557932｜Shields 2026. PMID 41581261</p>
+  </div>
+  <template class="k-narr">
+    <p data-step="0">持續治療率呢？</p>
+    <p data-step="1">美國申報資料，十八個月約百分之七十八，二十四個月百分之六十七。</p>
+    <p data-step="2">停藥原因前三名，是 ARIA、動機下降和認知退化；中國的停藥主因則是經濟負擔，這一點對全自費的台灣很值得參考。</p>
+    <p data-step="2">另一個美國世代，停藥原因以病程進展和 ARIA 惡化為主。</p>
+    <p data-step="3">而打滿十八個月的人，幾乎都選擇續打。</p>
+    <p data-step="3">對台灣來說，全自費是持續治療最大的門檻，開始治療前，就要和家屬談清楚。</p>
+  </template>
+</section>
+
+<section class="k-slide " data-chapter="真實世界" data-title="真實世界 ARIA 統合分析">
+  <div class="k-head"><h2>37 篇真實世界統合分析：美國 ARIA 約為亞洲的 2 倍</h2><p class="k-sub">Lecanemab 真實世界研究（2.5–24 個月）；「亞洲」組含 2 篇以色列世代；異質性高（I² 92%）</p></div>
+  <div class="k-body">
+<div class="k-split" style="grid-template-columns:840px 1fr;align-items:start;gap:50px"><div><div class="k-tabs"><button data-step-btn="1">美國 vs 亞洲</button><button data-step-btn="2">依 ApoE ε4</button></div><div data-s="1" data-sto="1"><div class="k-legend2"><span><i style="background:var(--navy)"></i>美國研究</span><span><i style="background:var(--sage)"></i>亞洲研究</span></div><div class="k-vb" style="height:330px;gap:56px"><div class="k-vg"><div class="k-vc" style="width:96px"><b style="color:var(--navy)">19.5%</b><i style="width:96px;height:88.6%;background:var(--navy)"></i></div><div class="k-vc" style="width:96px"><b style="color:var(--sage)">9.7%</b><i style="width:96px;height:44.1%;background:var(--sage)"></i></div></div><div class="k-vg"><div class="k-vc" style="width:96px"><b style="color:var(--navy)">10.6%</b><i style="width:96px;height:48.2%;background:var(--navy)"></i></div><div class="k-vc" style="width:96px"><b style="color:var(--sage)">2.5%</b><i style="width:96px;height:11.4%;background:var(--sage)"></i></div></div><div class="k-vg"><div class="k-vc" style="width:96px"><b style="color:var(--navy)">3.3%</b><i style="width:96px;height:15.0%;background:var(--navy)"></i></div><div class="k-vc" style="width:96px"><b style="color:var(--sage)">0.1%</b><i style="width:96px;height:0.5%;background:var(--sage)"></i></div></div></div><div class="k-vlabs" style="gap:56px"><span style="width:204px">任何 ARIA</span><span style="width:204px">ARIA-E</span><span style="width:204px">有症狀</span></div></div><div data-s="2"><div class="k-legend2"><span><i style="background:var(--terra)"></i>同型合子</span><span><i style="background:var(--navy)"></i>異型合子</span><span><i style="background:var(--sage)"></i>非帶因</span></div><div class="k-vb" style="height:330px;gap:56px"><div class="k-vg"><div class="k-vc" style="width:96px"><b style="color:var(--terra)">34.1%</b><i style="width:96px;height:94.7%;background:var(--terra)"></i></div><div class="k-vc" style="width:96px"><b style="color:var(--navy)">14.5%</b><i style="width:96px;height:40.3%;background:var(--navy)"></i></div><div class="k-vc" style="width:96px"><b style="color:var(--sage)">11.0%</b><i style="width:96px;height:30.6%;background:var(--sage)"></i></div></div><div class="k-vg"><div class="k-vc" style="width:96px"><b style="color:var(--terra)">10.3%</b><i style="width:96px;height:28.6%;background:var(--terra)"></i></div><div class="k-vc" style="width:96px"><b style="color:var(--navy)">4.7%</b><i style="width:96px;height:13.1%;background:var(--navy)"></i></div><div class="k-vc" style="width:96px"><b style="color:var(--sage)">2.9%</b><i style="width:96px;height:8.1%;background:var(--sage)"></i></div></div></div><div class="k-vlabs" style="gap:56px"><span style="width:312px">任何 ARIA</span><span style="width:312px">ARIA-E</span></div></div><p class="k-hint" style="font-size:24px">基線有微出血：任何 ARIA 23.4% vs 11.5%；停藥 12.2%（ARIA 相關 3.5%）</p></div><div data-s="3"><div class="k-forest"><div class="fr th"><span>研究</span><span class="nn">人數</span><span class="plot">ARIA-E 發生率（95% CI）</span><span class="vv">估計</span></div><div class="fr hd"><span>亞洲</span></div><div class="fr"><span>Bregman 2025</span><span class="nn">86</span><span class="plot"><i class="ci" style="left:2.8000000000000003%;width:36.800000000000004%"></i><i class="pt" style="left:calc(14.000000000000002% - 6px)"></i></span><span class="vv">3.5%</span></div><div class="fr"><span>Chang 2026</span><span class="nn">14</span><span class="plot"><i class="ci" style="left:6.0%;width:93.2%"></i><i class="pt" style="left:calc(0.0% - 6px)"></i></span><span class="vv">0.0%</span></div><div class="fr"><span>Chen 2025</span><span class="nn">68</span><span class="plot"><i class="ci" style="left:16.8%;width:72.4%"></i><i class="pt" style="left:calc(52.800000000000004% - 6px)"></i></span><span class="vv">13.2%</span></div><div class="fr"><span>Iwata 2026</span><span class="nn">2,634</span><span class="plot"><i class="ci" style="left:6.800000000000001%;width:5.6%"></i><i class="pt" style="left:calc(12.0% - 6px)"></i></span><span class="vv">3.0%</span></div><div class="fr"><span>Kang 2025</span><span class="nn">64</span><span class="plot"><i class="ci" style="left:1.6%;width:42.0%"></i><i class="pt" style="left:calc(12.4% - 6px)"></i></span><span class="vv">3.1%</span></div><div class="fr"><span>Mao 2026</span><span class="nn">42</span><span class="plot"><i class="ci" style="left:3.2%;width:62.400000000000006%"></i><i class="pt" style="left:calc(19.2% - 6px)"></i></span><span class="vv">4.8%</span></div><div class="fr"><span>Wu 2026</span><span class="nn">1,042</span><span class="plot"><i class="ci" style="left:6.0%;width:8.399999999999999%"></i><i class="pt" style="left:calc(11.600000000000001% - 6px)"></i></span><span class="vv">2.9%</span></div><div class="fr"><span>Yan 2026</span><span class="nn">144</span><span class="plot"><i class="ci" style="left:0.8%;width:15.600000000000001%"></i><i class="pt" style="left:calc(2.8000000000000003% - 6px)"></i></span><span class="vv">0.7%</span></div><div class="fr"><span>Zhang 2026</span><span class="nn">72</span><span class="plot"><i class="ci" style="left:0.0%;width:19.6%"></i><i class="pt" style="left:calc(0.0% - 6px)"></i></span><span class="vv">0.0%</span></div><div class="fr sum"><span>亞洲合併</span><span class="nn">4,166</span><span class="plot"><i class="dia" style="left:2.4%;width:18.8%;background:var(--sage)"></i></span><span class="vv">2.5%</span></div><div class="fr hd"><span>美國</span></div><div class="fr"><span>Brosch 2026</span><span class="nn">243</span><span class="plot"><i class="ci" style="left:20.4%;width:29.200000000000003%"></i><i class="pt" style="left:calc(32.800000000000004% - 6px)"></i></span><span class="vv">8.2%</span></div><div class="fr"><span>Curd 2026</span><span class="nn">70</span><span class="plot"><i class="ci" style="left:2.4%;width:44.400000000000006%"></i><i class="pt" style="left:calc(17.2% - 6px)"></i></span><span class="vv">4.3%</span></div><div class="fr"><span>Ferrer 2026</span><span class="nn">61</span><span class="plot"><i class="ci" style="left:16.8%;width:70.4%"></i><i class="pt" style="left:calc(46.0% - 6px)"></i></span><span class="vv">11.5%</span></div><div class="fr"><span>Hakim 2026</span><span class="nn">89</span><span class="plot"><i class="ci" style="left:16.8%;width:51.60000000000001%"></i><i class="pt" style="left:calc(36.0% - 6px)"></i></span><span class="vv">9.0%</span></div><div class="fr"><span>Liu 2026</span><span class="nn">230</span><span class="plot"><i class="ci" style="left:24.4%;width:32.4%"></i><i class="pt" style="left:calc(38.4% - 6px)"></i></span><span class="vv">9.6%</span></div><div class="fr"><span>O'Donnell 2025</span><span class="nn">32</span><span class="plot"><i class="ci" style="left:12.0%;width:88.0%"></i><i class="pt" style="left:calc(37.6% - 6px)"></i></span><span class="vv">9.4%</span></div><div class="fr"><span>Paczynski 2025</span><span class="nn">194</span><span class="plot"><i class="ci" style="left:40.8%;width:42.0%"></i><i class="pt" style="left:calc(59.599999999999994% - 6px)"></i></span><span class="vv">14.9%</span></div><div class="fr"><span>Rohatgi 2026</span><span class="nn">318</span><span class="plot"><i class="ci" style="left:44.800000000000004%;width:32.800000000000004%"></i><i class="pt" style="left:calc(60.4% - 6px)"></i></span><span class="vv">15.1%</span></div><div class="fr"><span>Rosenbloom 2025</span><span class="nn">165</span><span class="plot"><i class="ci" style="left:18.0%;width:35.2%"></i><i class="pt" style="left:calc(31.6% - 6px)"></i></span><span class="vv">7.9%</span></div><div class="fr"><span>Shields 2026</span><span class="nn">175</span><span class="plot"><i class="ci" style="left:32.0%;width:41.599999999999994%"></i><i class="pt" style="left:calc(50.4% - 6px)"></i></span><span class="vv">12.6%</span></div><div class="fr"><span>Wallace 2026</span><span class="nn">146</span><span class="plot"><i class="ci" style="left:26.400000000000002%;width:44.8%"></i><i class="pt" style="left:calc(46.400000000000006% - 6px)"></i></span><span class="vv">11.6%</span></div><div class="fr sum"><span>美國合併</span><span class="nn">1,723</span><span class="plot"><i class="dia" style="left:34.0%;width:17.200000000000003%;background:var(--navy)"></i></span><span class="vv">10.6%</span></div><div class="fr sum"><span>全部合併</span><span class="nn">5,889</span><span class="plot"><i class="dia" style="left:16.8%;width:19.999999999999996%;background:var(--terra)"></i></span><span class="vv">6.5%</span></div><div class="fr ax"><span></span><span class="nn"></span><span class="plot"><b style="left:0.0%">0%</b><b style="left:20.0%">5%</b><b style="left:40.0%">10%</b><b style="left:60.0%">15%</b><b style="left:80.0%">20%</b><b style="left:100.0%">25%</b></span><span class="vv"></span></div></div><p class="k-figcap">依 Wu 2026 J Neurol Fig 2B 數據重繪（ARIA-E）：日本全例監測 3.0%；美國各中心 4–15%</p></div></div>
+
+<p class="k-cite">Wu Y, et al. J Neurol 2026;273:675（Fig 2、Fig 3；右圖依原文數據重繪）. PMID 42907679｜對照 Clarity AD：ARIA-E 12.6%、ARIA-H 17.3%（PMID 36449413）</p>
+  </div>
+  <template class="k-narr">
+    <p data-step="0">真實世界的 ARIA，看這篇三十七個研究的統合分析，追蹤二點五到二十四個月，異質性很高。</p>
+    <p data-step="1">美國研究任何 ARIA 是百分之十九點五，亞洲百分之九點七；有症狀 ARIA 是百分之三點三對零點一。</p>
+    <p data-step="1">也就是說，美國研究的 ARIA，大約是亞洲的兩倍。</p>
+    <p data-step="2">換成 ApoE 分層，同型合子仍有百分之三十四，和試驗差不多。</p>
+    <p data-step="2">基線就有微出血的人，任何 ARIA 是百分之二十三點四，沒有的人是百分之十一點五。</p>
+    <p data-step="3">右邊是原文的 ARIA-E 森林圖，日本全例監測兩千多人，只有百分之三。</p>
+    <p data-step="3">亞洲數字比較低，部分可能和選病、偵測方式及血壓有關，下一頁說明。</p>
+  </template>
+</section>
+
+<section class="k-slide " data-chapter="真實世界" data-title="為何 ARIA 較低">
+  <div class="k-head"><h2>真實世界 ARIA 較低，主要是選病與偵測，不是藥變安全</h2><p class="k-sub">三個解釋並存；臨床意義是：放寬適應症時，ARIA 可能回到試驗的水準</p></div>
+  <div class="k-body">
+<div class="k-g3 k-fill"><div class="k-card" data-s="1"><p class="k-no">1</p><h3>選病</h3><p class="k-big k-t" style="margin:6px 0 12px">1%／9%</p><p>ALZ-NET 用抗凝僅 1%；ε4 同型合子僅 9%（一般 AD 約 15%）<span class="k-conf">會議</span></p><p style="margin-top:12px">真實世界 ARIA 下降<strong>集中在 ε4 帶因者</strong>，非帶因者與試驗相近</p></div><div class="k-card" data-s="2"><p class="k-no">2</p><h3>偵測方式</h3><div class="k-mb"><div style="height:34px">6</div><div style="height:102px">18</div><div style="height:170px">30</div></div><p>同一病人的微出血數：1.5T GRE → 3T GRE → 3T SWI<span class="k-conf">會議</span></p><p style="margin-top:12px">3T＋SWI 的中心 ARIA-H 22%（高於 Clarity 17%）</p></div><div class="k-card" data-s="3"><p class="k-no">3</p><h3>族群與血壓</h3><p class="k-big k-s" style="margin:6px 0 12px">舒張壓 &gt;75</p><p>ARIA-E 風險約 3 倍（MGB 468 人）<span class="k-conf">會議</span></p><p style="margin-top:12px">亞洲血壓較低是推測之一；Donanemab 次分析：平均動脈壓 &gt;93 mmHg ARIA 上升</p></div></div>
+<div class="k-take warn" data-s="3">放寬選病（同型合子、抗凝、血管病變）時，ARIA 可能回到試驗水準</div>
+<p class="k-cite">ALZ-NET：CTAD 2025 會議資料｜Shim Y, Park SK. J Alzheimers Dis 2026. PMID 42678678｜MRI 偵測與血壓：AAIC 2026 會議資料（Graff-Radford、Dickerson）｜台灣共識 2025</p>
+  </div>
+  <template class="k-narr">
+    <p data-step="0">真實世界 ARIA 比較低，主要是選病和偵測，不是藥變安全了。</p>
+    <p data-step="1">第一是選病：ALZ-NET 用抗凝的只有百分之一，同型合子只有百分之九；而且 ARIA 下降集中在 ε4 帶因者。</p>
+    <p data-step="2">第二是偵測方式：同一個病人，一點五 T 的 GRE 看到六顆微出血，三 T 的 SWI 看到三十顆。</p>
+    <p data-step="2">三 T 加上 SWI 的中心，ARIA-H 甚至比 Clarity 還高。</p>
+    <p data-step="3">第三是族群與血壓：舒張壓超過七十五，ARIA-E 風險約三倍。一旦放寬選病，ARIA 可能回到試驗的水準。</p>
+    <p data-step="3">所以不要因為真實世界的數字比較低，就放寬選病或降低監測。</p>
+  </template>
+</section>
+
+<section class="k-slide " data-chapter="真實世界" data-title="警訊">
+  <div class="k-head"><h2>警訊：ARIA 不只發生在前 6 個月，也不只在用藥期間</h2><p class="k-sub">罕見但嚴重的事件；這些是延長治療、停藥追蹤與急診流程的依據</p></div>
+  <div class="k-body">
+<div class="k-g2 k-fill"><div class="k-card terra" data-s="1"><h3 class="k-t">死亡</h3><p>Duke 230 人：5 例死亡，其中 2 例與 ARIA 相關；臨床顯著不良事件 31.3%</p><p class="k-src">Liu 2026 PMID 42746606</p></div><div class="k-card terra" data-s="2"><h3 class="k-t">晚發出血</h3><p>完成 18 個月無 ARIA，第 42 次輸注隔天 2.5 cm 葉性出血</p><p class="k-src">Takahashi 2026 PMID 42877463</p></div><div class="k-card terra" data-s="3"><h3 class="k-t">停藥後進展</h3><p>第 2 劑後輕度 ARIA 而停藥，8 週後表淺鐵沉積明顯進展（APOE ε2/ε4）</p><p class="k-src">Stögmann 2026 PMID 42862019</p></div><div class="k-card terra" data-s="3"><h3 class="k-t">發炎性腦炎</h3><p>用藥 10 個月後類固醇反應性軟腦膜腦炎；另有輸注後數小時無菌性腦膜炎報告</p><p class="k-src">Tagane 2026 PMID 42876904｜CTAD 2025</p></div></div>
+<div class="k-take warn" data-s="3">延長治療仍需警覺；停藥後若有 ARIA，仍要 MRI 追蹤到穩定</div>
+<p class="k-cite">見各卡片｜MGB：APOE ε2/ε4 五人中三人 ARIA（AAIC 2026 會議資料）</p>
+  </div>
+  <template class="k-narr">
+    <p data-step="0">幾個罕見但嚴重的警訊。</p>
+    <p data-step="1">Duke 世代兩百三十人中有五例死亡，其中兩例和 ARIA 相關。</p>
+    <p data-step="1">Duke 世代中，具有臨床意義的不良事件，比例是百分之三十一點三。</p>
+    <p data-step="2">有病人打完十八個月都沒有 ARIA，第四十二次輸注隔天，卻發生兩點五公分的葉性出血。</p>
+    <p data-step="3">也有停藥後表淺鐵沉積仍在進展，以及發炎性腦炎、無菌性腦膜炎的報告。延長治療和停藥後，都還需要警覺。</p>
+    <p data-step="3">這些個案提醒我們：病歷上要清楚標記治療狀態，病人和家屬也要知道出現新的神經症狀時，要立刻回診。</p>
+  </template>
+</section>
+
+<section class="k-slide " data-chapter="如何追蹤" data-title="MRI 監測時程">
+  <div class="k-head"><h2>MRI 監測時程：前 6 個月最密集</h2><p class="k-sub">淺橘底＝前 6 個月；2025 年 6 月台灣共識沿用當時仿單，2025 年 8 月美國仿單已提前</p></div>
+  <div class="k-body">
+<div class="k-mri"><div class="k-tabs"><button data-step-btn="1">美國仿單 2026</button><button data-step-btn="2">台灣共識 2025（當時仿單）</button></div><div class="win" style="width:calc((100% - 300px) * 0.5)"></div><div class="months"><div></div><div class="ax2"><span style="left:0.0%">0</span><span style="left:8.333333333333332%">1</span><span style="left:16.666666666666664%">2</span><span style="left:25.0%">3</span><span style="left:33.33333333333333%">4</span><span style="left:41.66666666666667%">5</span><span style="left:50.0%">6</span><span style="left:58.333333333333336%">7</span><span style="left:66.66666666666666%">8</span><span style="left:75.0%">9</span><span style="left:83.33333333333334%">10</span><span style="left:91.66666666666666%">11</span><span style="left:100.0%">12</span></div></div><div data-sto="1"><div class="tr"><div class="tl"><b style="color:var(--sage)">Lecanemab</b><br><span>IV 每 2 週｜SC 每週</span></div><div class="ax" style="background:var(--sage)"><div class="mk" style="left:0%"><div class="dt" style="background:var(--sage)"></div><div class="mt">基線</div></div><div class="mk" style="left:8.333333333333332%"><div class="dt" style="background:var(--sage)"></div><div class="mt">第 1 月</div></div><div class="mk" style="left:16.666666666666664%"><div class="dt" style="background:var(--sage)"></div><div class="mt">第 2 月</div></div><div class="mk" style="left:25.0%"><div class="dt" style="background:var(--sage)"></div><div class="mt">第 3 月</div></div><div class="mk" style="left:50.0%"><div class="dt" style="background:var(--sage)"></div><div class="mt">第 6 月</div></div><div class="mk" style="left:100.0%;text-align:right;transform:translateX(-85%)"><div class="dt hollow" style="border-color:var(--sage);margin:0 0 0 auto;margin-right:10%"></div><div class="mt" style="color:var(--muted)">第 52 週（ε4，AUR）</div></div></div></div><div class="tr"><div class="tl"><b style="color:var(--terra)">Donanemab</b><br><span>IV 每 4 週</span></div><div class="ax" style="background:var(--terra)"><div class="mk" style="left:0%"><div class="dt" style="background:var(--terra)"></div><div class="mt">基線</div></div><div class="mk" style="left:8.333333333333332%"><div class="dt" style="background:var(--terra)"></div><div class="mt">第 2 劑前</div></div><div class="mk" style="left:16.666666666666664%"><div class="dt" style="background:var(--terra)"></div><div class="mt">第 3 劑前</div></div><div class="mk" style="left:25.0%"><div class="dt" style="background:var(--terra)"></div><div class="mt">第 4 劑前</div></div><div class="mk" style="left:50.0%"><div class="dt" style="background:var(--terra)"></div><div class="mt">第 7 劑前</div></div><div class="mk" style="left:91.66666666666666%;"><div class="dt hollow" style="border-color:var(--terra);"></div><div class="mt" style="color:var(--muted)">第 12 劑前（高風險）</div></div></div></div></div><div data-s="2"><div class="tr"><div class="tl"><b style="color:var(--sage)">Lecanemab</b><br><span>IV 每 2 週</span></div><div class="ax" style="background:var(--sage)"><div class="mk" style="left:0%"><div class="dt" style="background:var(--sage)"></div><div class="mt">基線</div></div><div class="mk" style="left:16.666666666666664%"><div class="dt" style="background:var(--sage)"></div><div class="mt">第 5 劑前</div></div><div class="mk" style="left:25.0%"><div class="dt" style="background:var(--sage)"></div><div class="mt">第 7 劑前</div></div><div class="mk" style="left:54.166666666666664%"><div class="dt" style="background:var(--sage)"></div><div class="mt">第 14 劑前</div></div><div class="mk" style="left:100.0%;text-align:right;transform:translateX(-85%)"><div class="dt hollow" style="border-color:var(--sage);margin:0 0 0 auto;margin-right:10%"></div><div class="mt" style="color:var(--muted)">第 26 劑前（ε4）</div></div></div></div><div class="tr"><div class="tl"><b style="color:var(--terra)">Donanemab</b><br><span>IV 每 4 週</span></div><div class="ax" style="background:var(--terra)"><div class="mk" style="left:0%"><div class="dt" style="background:var(--terra)"></div><div class="mt">基線</div></div><div class="mk" style="left:8.333333333333332%"><div class="dt" style="background:var(--terra)"></div><div class="mt">第 2 劑前</div></div><div class="mk" style="left:16.666666666666664%"><div class="dt" style="background:var(--terra)"></div><div class="mt">第 3 劑前</div></div><div class="mk" style="left:25.0%"><div class="dt" style="background:var(--terra)"></div><div class="mt">第 4 劑前</div></div><div class="mk" style="left:50.0%"><div class="dt" style="background:var(--terra)"></div><div class="mt">第 7 劑前</div></div></div></div></div><div class="k-g3" data-s="3" style="margin-top:14px"><div class="k-evi" style="padding:12px 22px"><span class="k-big2" style="font-size:44px">71%／92%</span><p style="font-size:24px">ARIA-E 在前 3／6 個月出現（Clarity）</p></div><div class="k-evi" style="padding:12px 22px"><span class="k-big2" style="font-size:44px">58.3%</span><p style="font-size:24px">Donanemab 首次 ARIA-E 在第 3 劑前</p></div><div class="k-evi" style="padding:12px 22px"><span class="k-big2" style="font-size:44px">第 25 週</span><p style="font-size:24px">Duke 世代 ARIA-E 第二個小高峰</p></div></div></div>
+<div class="k-take" data-s="3">第 6 個月那次 MRI 不能省</div>
+<p class="k-cite">LEQEMBI 仿單 Revised 7/2026｜KISUNLA 仿單 2026-01｜Donanemab AUR. PMID 40155270｜台灣共識 2025 §1.4、§3.3｜Honig 2024. PMID 38730496｜Zimmer 2025. PMID 40063015｜Liu 2026. PMID 42746606</p>
+  </div>
+  <template class="k-narr">
+    <p data-step="0">MRI 監測時程，前六個月最密集。</p>
+    <p data-step="1">二零二六年美國仿單：lecanemab 是基線加上第一、二、三、六個月；donanemab 是第二、三、四、七劑前，高風險者再加第十二劑前。</p>
+    <p data-step="2">台灣共識沿用當時的仿單，是第五、七、十四劑前，第一個 MRI 比較晚。</p>
+    <p data-step="2">台灣共識發表的時候，美國仿單還沒有把第一個 MRI 提前，所以兩者的時間點不同。</p>
+    <p data-step="3">ARIA-E 百分之七十一在前三個月、百分之九十二在前六個月出現，所以第六個月那次 MRI 不能省。</p>
+    <p data-step="3">排程時，建議一開始就把前六個月的 MRI 全部排好，避免漏掉。</p>
+  </template>
+</section>
+
+<section class="k-slide " data-chapter="如何追蹤" data-title="MRI 規格與分級">
+  <div class="k-head"><h2>MRI 規格決定看得到多少：台灣共識的五個最低條件</h2><p class="k-sub">基線 MRI 需在一年內；超過 6 個月且在條件邊緣（1–4 顆微出血）或高風險者，建議重照</p></div>
+  <div class="k-body">
+<div class="k-split" style="grid-template-columns:640px 1fr;align-items:start;gap:48px"><div><div class="k-spec" data-s="1"><b>1</b><span>至少 1.5T，<strong class="k-s">建議 3T</strong></span></div><div class="k-spec" data-s="1"><b>2</b><span>2D T2*GRE 或 SWI（偵測 ARIA-H）</span></div><div class="k-spec" data-s="1"><b>3</b><span>T2 FLAIR（偵測 ARIA-E）</span></div><div class="k-spec" data-s="1"><b>4</b><span>切片厚度 ≤5 mm</span></div><div class="k-spec" data-s="1"><b>5</b><span>GRE 回訊時間 TE ≥20 ms</span></div><p class="k-small" data-s="1" style="margin-top:12px;font-size:24px">偵測 ARIA 至少要有 FLAIR、GRE/T2* 或 SWI，以及 DWI（區分急性梗塞）</p></div><div data-s="2"><p class="k-lead" style="font-size:30px;font-weight:900;margin-bottom:8px">ARIA 影像嚴重度分級</p><table class="k-tb sm"><tr><th>類型</th><th>輕度</th><th>中度</th><th>重度</th></tr><tr><td class="b">ARIA-E（FLAIR 高訊號）</td><td>單處 &lt;5 cm</td><td>單處 5–10 cm，或多處皆 &lt;10 cm</td><td>任一處 &gt;10 cm</td></tr><tr><td class="b">ARIA-H 微出血</td><td>≤4 顆</td><td>5–9 顆</td><td>≥10 顆或≥1 處腦出血</td></tr><tr><td class="b">ARIA-H 表淺鐵沉積</td><td>1 處腦溝</td><td>2 處腦溝</td><td>&gt;2 處腦溝</td></tr></table><img src="img/gen_mri_t.png" alt="" style="display:block;width:100%;height:220px;object-fit:contain;margin-top:20px"></div></div>
+<div class="k-take" data-s="3">追蹤時固定同一台機器、同一序列；換成 SWI 或 3T 會「多出」微出血</div>
+<p class="k-cite">台灣腦中風學會＋台灣臨床失智症學會共識 Formosan J Stroke 2025;7(2):83–98（§1.2、表 4）｜Nakashima 2026 Annu Rev Pathol：更換序列或場強會影響新發微出血判讀</p>
+  </div>
+  <template class="k-narr">
+    <p data-step="0">MRI 規格決定看得到多少。台灣共識列出五個最低條件。</p>
+    <p data-step="1">至少一點五 T、建議三 T；要有 GRE 或 SWI 看 ARIA-H，FLAIR 看 ARIA-E；切片五毫米以下，GRE 的 TE 二十毫秒以上。另外還要有 DWI，來區分急性梗塞。</p>
+    <p data-step="2">右邊是影像嚴重度分級，處置就依這個分級。</p>
+    <p data-step="2">分級分成輕度、中度和重度，是判斷續打或暫停的依據。</p>
+    <p data-step="3">實務提醒：追蹤要固定同一台機器、同一個序列，換成 SWI 或三 T，會多出微出血。</p>
+    <p data-step="3">如果病人換了醫院或換了機器，判讀新的微出血時要特別小心。</p>
+  </template>
+</section>
+
+<section class="k-slide " data-chapter="如何追蹤" data-title="開始前的風險分層">
+  <div class="k-head"><h2>開始前的風險分層：七個因子，點選看證據</h2><p class="k-sub">多數因子都指向同一件事：血管類澱粉與血管健康</p></div>
+  <div class="k-body">
+<div class="k-split" style="grid-template-columns:600px 1fr;align-items:stretch;gap:48px"><div class="k-col" style="gap:14px"><button class="k-rf" data-step-btn="1">ApoE ε4 同型合子</button><button class="k-rf" data-step-btn="2">APOE ε2/ε4</button><button class="k-rf" data-step-btn="3">微出血、表淺鐵沉積</button><button class="k-rf" data-step-btn="4">白質病變</button><button class="k-rf" data-step-btn="5">血壓</button><button class="k-rf" data-step-btn="6">近期中風／TIA／癲癇</button><button class="k-rf" data-step-btn="7">自體免疫、發炎性共病</button></div><div class="k-rdw"><div class="k-rd" data-sto="0"><h3>七個因子</h3><p>多數因子都指向同一件事：<strong>血管類澱粉與血管健康</strong>。點選左側因子，看證據。</p></div><div class="k-rd" data-s="1" data-sto="1"><h3>ApoE ε4 同型合子</h3><p>Clarity：ARIA-E 非帶因 5.4% → 同型合子 32.6%；ARIA-H 11.9% → 39.0%。台灣仿單不建議同型合子使用；真實世界統合分析同型合子仍 34.1%。</p><p class="k-src">Honig 2024｜Annu Rev Pathol 2026｜台灣共識｜Wu 2026</p></div><div class="k-rd" data-s="2" data-sto="2"><h3>APOE ε2/ε4</h3><p>MGB 世代 5 人中 3 人發生 ARIA（60%），高於同型合子 35%；可能反映 CAA 血管脆弱。人數少，需更大研究。</p><p class="k-src">AAIC 2026 會議資料</p></div><div class="k-rd" data-s="3" data-sto="3"><h3>微出血、表淺鐵沉積</h3><p>台灣與美國 AUR：&gt;4 顆微出血、任何表淺鐵沉積、單處出血 &gt;10 mm 排除。東京世代：基線有微出血者 ARIA-H OR 14.0。</p><p class="k-src">台灣共識｜Kujuro 2026 PMID 42892274</p></div><div class="k-rd" data-s="4" data-sto="4"><h3>白質病變</h3><p>Fazekas 3 分（廣泛融合）不建議治療；K-ROAD：Fazekas 每增 1 分 ARIA-H 風險增約 50%。</p><p class="k-src">台灣共識｜Kang 2026 PMID 42642841</p></div><div class="k-rd" data-s="5" data-sto="5"><h3>血壓</h3><p>Donanemab 次分析：平均動脈壓 &gt;93 mmHg ARIA 上升；台灣共識建議先控制血壓。MGB：舒張壓 &gt;75 ARIA-E 約 3 倍；Indiana 輸注前 &gt;140/90 不輸注。</p><p class="k-src">Zimmer 2025｜台灣共識｜AAIC 2026 會議資料</p></div><div class="k-rd" data-s="6" data-sto="6"><h3>近期中風／TIA／癲癇</h3><p>台灣 AUR：12 個月內曾發生 TIA、中風或癲癇者不建議治療；更早病史由醫師與家屬討論。</p><p class="k-src">台灣共識 §1.4</p></div><div class="k-rd" data-s="7"><h3>自體免疫、發炎性共病</h3><p>ARIA 可能與抗體引起的發炎有關，用藥前需審慎評估。</p><p class="k-src">台灣共識 §1.4</p></div></div></div>
+<div class="k-take" data-s="7">治療前先把血壓控制好、拿到 3T＋SWI 的基線 MRI、做 APOE 檢測</div>
+
+  </div>
+  <template class="k-narr">
+    <p data-step="0">開始治療前的風險分層，有七個因子。</p>
+    <p data-step="1">最重要的是 ApoE ε4 同型合子：Clarity 的 ARIA-E 從非帶因的百分之五點四，升到百分之三十二點六，台灣仿單不建議同型合子使用。</p>
+    <p data-step="2">ε2 加 ε4 是新的警訊，MGB 五個人中有三個發生 ARIA，人數雖少，值得注意。</p>
+    <p data-step="3">基線超過四顆微出血、任何表淺鐵沉積、單處出血超過十毫米，都要排除。</p>
+    <p data-step="3">東京世代中，基線有微出血的人，ARIA-H 的勝算比是十四。</p>
+    <p data-step="4">白質病變 Fazekas 三分不建議治療；每增加一分，ARIA-H 風險約增加百分之五十。</p>
+    <p data-step="5">血壓：平均動脈壓超過九十三，ARIA 上升；輸注前血壓超過一百四十比九十，就不輸注。</p>
+    <p data-step="6">十二個月內曾有 TIA、中風或癲癇，不建議治療。</p>
+    <p data-step="7">自體免疫和發炎性共病，用藥前也要審慎評估。</p>
+    <p data-step="7">整理起來，治療前最重要的三件事是：控制血壓、拿到好的基線 MRI，以及做 ApoE 檢測。</p>
+  </template>
+</section>
+
+<section class="k-slide k-mxpage" data-chapter="如何追蹤" data-title="ARIA 處置">
+  <div class="k-head"><h2>ARIA 處置：依症狀 × 影像決定，出現這些就停藥</h2><p class="k-sub">點選格子看處置細節（仿單＋台灣共識）</p></div>
+  <div class="k-body">
+<div class="k-split" style="grid-template-columns:1000px 1fr;align-items:start;gap:40px"><div><table class="k-mx"><tr><th>ARIA-E：症狀 ＼ 影像</th><th>輕度</th><th>中度</th><th>重度</th></tr><tr><td>無症狀</td><td class="cell go" data-k="E00" data-d="無症狀＋輕度 ARIA-E：可繼續給藥；台灣共識建議每月 MRI 追蹤是否加重。">可續打</td><td class="cell stop" data-k="E01" data-d="暫停至影像消退；2–4 個月複查 MRI，恢復用藥由臨床判斷。">暫停</td><td class="cell stop" data-k="E02" data-d="暫停至影像消退；重度者考慮永久停藥（AUR）。">暫停</td></tr><tr><td>輕度症狀</td><td class="cell go" data-k="E10" data-d="輕度症狀＋輕度影像：可依臨床判斷續打；台灣共識：有症狀者先停藥、每月 MRI。">依臨床判斷</td><td class="cell stop" data-k="E11" data-d="暫停至影像消退、症狀緩解。">暫停</td><td class="cell stop" data-k="E12" data-d="暫停；考慮類固醇與永久停藥。">暫停</td></tr><tr><td>中重度症狀</td><td class="cell stop" data-k="E20" data-d="中重度症狀一律暫停；嚴重者考慮 methylprednisolone 1 g/天 × 5 天。">暫停</td><td class="cell stop" data-k="E21" data-d="同上；癲癇需監測與治療。">暫停</td><td class="cell stop" data-k="E22" data-d="同上；考慮永久停藥。">暫停</td></tr></table><div style="height:12px"></div><table class="k-mx"><tr><th>ARIA-H：症狀 ＼ 影像</th><th>輕度</th><th>中度</th><th>重度</th></tr><tr><td>無症狀</td><td class="cell go" data-k="H00" data-d="無症狀＋輕度 ARIA-H（≤4 顆新微出血、1 處表淺鐵沉積）：可續打，追蹤 MRI。">可續打</td><td class="cell stop" data-k="H01" data-d="暫停至影像穩定；2–4 個月複查。">暫停</td><td class="cell stop" data-k="H02" data-d="暫停；臨床判斷是否永久停藥。">暫停</td></tr><tr><td>有症狀</td><td class="cell stop" data-k="H10" data-d="有症狀即暫停，待影像穩定、症狀緩解。">暫停</td><td class="cell stop" data-k="H11" data-d="暫停。">暫停</td><td class="cell stop" data-k="H12" data-d="暫停；考慮永久停藥。">暫停</td></tr></table><div class="k-det"><span class="k-chip">點選上方任一格 ▸</span>　看處置細節</div></div><div class="k-panel terra" data-s="2" style="height:100%"><h3 class="k-t">建議永久停藥</h3><p>・任何巨出血（&gt;1 cm）</p><p>・治療後新增 &gt;10 顆微出血</p><p>・ARIA-E 反覆發生（台灣 ≥2 次；美國 AUR &gt;2 次）</p><p>・新出現一處表淺鐵沉積（AUR 停藥；donanemab AUR 與病人討論）</p><p>・嚴重症狀、日常生活失能</p><p>・需要長期抗凝（美國 AUR）</p><p data-s="3" style="margin-top:18px;font-size:25px;color:var(--ink-2)">實務：ALZ-NET 約 1/3 續打、1/3 暫停、1/4 永久停藥<span class="k-conf">會議</span></p></div></div>
+
+<p class="k-cite">LEQEMBI 仿單 7/2026 Table 3–4｜台灣共識 2025 §3.3、圖 2｜Cummings J, et al. Lecanemab AUR 2023. PMID 37357276｜ALZ-NET：CTAD 2025 會議資料</p>
+  </div>
+  <template class="k-narr">
+    <p data-step="0">ARIA 的處置看兩個軸：症狀和影像嚴重度。綠色可以續打，橘色暫停。</p>
+    <p data-step="1">無症狀加上輕度 ARIA-E 可以續打，台灣共識建議每月 MRI 追蹤。台灣共識比較保守：只要有症狀，就先停藥。</p>
+    <p data-step="1">輕度症狀加上輕度影像，美國可依臨床判斷續打。</p>
+    <p data-step="2">右邊是建議永久停藥的情況：任何巨出血、治療後新增超過十顆微出血、ARIA-E 反覆發生、嚴重症狀；美國 AUR 也把需要長期抗凝列進來。</p>
+    <p data-step="2">ARIA-E 反覆發生的次數，台灣共識是兩次以上，美國 AUR 是超過兩次。</p>
+    <p data-step="3">嚴重 ARIA-E 可以考慮 methylprednisolone 每天一公克、共五天。真實世界的 ALZ-NET，大約三分之一續打、三分之一暫停、四分之一永久停藥。</p>
+    <p data-step="3">處置的原則是：有症狀先停，影像中度以上先停，等影像穩定，再由臨床判斷是否恢復。</p>
+  </template>
+</section>
+
+<section class="k-slide " data-chapter="如何追蹤" data-title="p-tau217 怎麼用">
+  <div class="k-head"><h2>血漿 p-tau217：篩選可用、追蹤輔助、停藥仍看 PET</h2><p class="k-sub">同一個檢驗用在治療的四個時間點，證據強度差很多</p></div>
+  <div class="k-body">
+<div class="k-g4" style="gap:18px"><div class="k-pt" data-s="1"><span class="k-ptn">1</span><h3>篩選：確認類澱粉</h3><span class="k-pill" style="background:var(--sage)">可以用</span><ul><li>指引：敏感度、特異度皆 ≥90% 可取代 PET／CSF</li><li>FDA 2025-05 核准首個血液檢驗（Lumipulse p-tau217/Aβ42）：陽性 91.7%、陰性 97.3% 與 PET／CSF 一致</li><li>日本真實世界 99 人：AUC 0.93</li><li>中國 1,042 人：5.3% 只用血液確診，結果相近</li></ul></div><div class="k-pt" data-s="2"><span class="k-ptn">2</span><h3>治療中：看反應</h3><span class="k-pill" style="background:var(--navy)">輔助</span><ul><li>Lecanemab 153 人：第 3 個月開始下降，3–6 個月降最多後持平</li><li>下降較多組 CDR-SB 惡化較慢；高血壓者反應較弱</li><li>中國 261 人：下降與 PET 清除相關（6 個月 −22.1 CL）</li><li>改良滴定不影響 donanemab 的 p-tau217 下降</li></ul></div><div class="k-pt" data-s="3"><span class="k-ptn">3</span><h3>停藥：判斷已清除</h3><span class="k-pill" style="background:var(--terra)">不能取代 PET</span><ul><li>TRAILBLAZER-ALZ 2：偵測 PET &lt;24.1 CL 的 AUC 僅 0.61（52 週，n＝830）</li><li>Donanemab AUR：只有類澱粉 PET 被驗證可決定停藥</li><li>個案報告：PET 清除時 p-tau217 也在低值，仍需研究</li></ul></div><div class="k-pt" data-s="4"><span class="k-ptn">4</span><h3>停藥後：早期警訊</h3><span class="k-pill" style="background:var(--navy)">研究中</span><ul><li>Lecanemab 模型：停藥後血漿標記回到基線的半衰期約 1–1.5 年，比 PET 回升更快</li><li>改每月維持可讓血漿標記保持穩定（模型推估）</li><li>Donanemab 延伸期第 76 週 p-tau217、GFAP 輕度回升<span class="k-conf">會議</span></li></ul></div></div><div class="k-g3" data-s="5" style="margin-top:14px;gap:18px"><div class="k-cav"><strong>門檻依平台而定</strong>：Lumipulse 與 Cobas 一致性高（ICC 0.92）但切點不同；95% 雙門檻灰區約 30%，90% 門檻約 9–13%</div><div class="k-cav"><strong>比值檢驗的 Aβ42 易受前處理影響</strong>：Mayo 臨床驗證，類澱粉陰性者 40% 被判陽性<span class="k-conf">會議</span></div><div class="k-cav"><strong>陽性不等於診斷</strong>：仍需臨床表現、影像與共病整合；台灣共識（2025）列為待主管機關核准</div></div>
+
+<p class="k-cite">PMID 40729527、42787809、42557932、42535277、41823189、42565262、40155270、42022334、42085591｜FDA 510(k) 2025-05-16｜CTAD 2025、AAIC 2026 會議資料｜台灣共識 2025 表 1</p>
+  </div>
+  <template class="k-narr">
+    <p data-step="0">血漿 p-tau217 用在治療的四個時間點，證據強度差很多。</p>
+    <p data-step="1">篩選已經可以用：FDA 二零二五年五月核准第一個血液檢驗，日本真實世界 AUC 零點九三。</p>
+    <p data-step="1">指引的標準是敏感度和特異度都在百分之九十以上，才能取代 PET 這類檢查。</p>
+    <p data-step="2">治療中可以輔助：lecanemab 第三個月開始下降，下降較多的人，CDR-SB 惡化較慢。</p>
+    <p data-step="2">中國的研究也發現，p-tau217 下降和 PET 清除相關。</p>
+    <p data-step="3">但要判斷 donanemab 是否清除、可以停藥，AUC 只有零點六一，停藥仍然要看 PET。</p>
+    <p data-step="4">停藥後，血漿標記回升比 PET 快，可能是早期警訊，但還在研究。</p>
+    <p data-step="5">使用時注意：不同平台的切點不同，比值檢驗的 Aβ42 容易受前處理影響，陽性也不等於診斷。</p>
+    <p data-step="5">簡單說，p-tau217 可以幫忙篩選和追蹤，但決定停藥，現在還是要看 PET。</p>
+  </template>
+</section>
+
+<section class="k-slide " data-chapter="如何治療" data-title="Lecanemab 用法">
+  <div class="k-head"><h2>Lecanemab：持續型治療，18 個月後可降為每 4 週</h2><p class="k-sub">以下為美國仿單：靜脈與皮下可互換，2026 年 7 月起也可直接用皮下起始；<strong class="k-t">台灣尚未引進皮下劑型</strong></p></div>
+  <div class="k-body">
+<div class="k-rg"><div class="k-col" style="gap:20px"><div class="k-rgb iv" data-s="1"><h3>起始：靜脈</h3><p>10 mg/kg 每 2 週，約 1 小時</p></div><div class="k-rgb sc" data-s="1"><h3>起始：皮下（美國；台灣未引進）</h3><p>500 mg（2×250 mg）每週</p></div></div><div class="k-arr" data-s="2">➜</div><div class="k-rgm" data-s="2"><b>18 個月</b><span>可續用起始劑量</span></div><div class="k-arr" data-s="2">➜</div><div class="k-col" style="gap:20px"><div class="k-rgb iv" data-s="2"><h3>維持：靜脈</h3><p>10 mg/kg 每 4 週</p></div><div class="k-rgb sc" data-s="2"><h3>維持：皮下（美國；台灣未引進）</h3><p>360 mg 每週，可居家自行注射</p></div></div></div><div class="k-g3" data-s="3" style="margin-top:22px"><div class="k-evi"><span class="k-big2">104%</span><p>皮下 500 mg 每週 vs 靜脈每 2 週的暴露量比（90% CI 99.1–109%）</p></div><div class="k-evi"><span class="k-big2">97%</span><p>單中心長期病人對皮下的滿意度；全員偏好皮下</p></div><div class="k-evi"><span class="k-big2">88%</span><p>LEADER 進入維持期者仍持續（IV 155、SC 14 人）<span class="k-conf">會議</span></p></div></div>
+<div class="k-take" data-s="3">台灣目前只能靜脈給藥；皮下居家劑型引進前，維持期仍需回輸注中心</div>
+<p class="k-cite">LEQEMBI／LEQEMBI IQLIK 仿單 Revised 7/2026（§2.2–2.3）｜Watson D, et al. Curr Alzheimer Res 2026. PMID 42872652｜LEADER：AAIC 2026 會議資料</p>
+  </div>
+  <template class="k-narr">
+    <p data-step="0">lecanemab 是持續型治療。</p>
+    <p data-step="1">起始是每兩週靜脈注射，每公斤十毫克；美國也可以每週皮下五百毫克。</p>
+    <p data-step="2">十八個月後，可以續用起始劑量，或改成每四週靜脈、每週皮下三百六十毫克來維持。</p>
+    <p data-step="2">皮下劑型可以在家自行注射，美國已經可以整個療程都在家完成。</p>
+    <p data-step="3">皮下和靜脈的暴露量相當，病人也偏好皮下。但台灣目前只能靜脈給藥，維持期仍要回輸注中心。</p>
+    <p data-step="3">所以在台灣，持續型治療代表病人要長期往返輸注中心，這也是決定治療前要考慮的負擔。</p>
+  </template>
+</section>
+
+<section class="k-slide " data-chapter="如何治療" data-title="Donanemab 用法">
+  <div class="k-head"><h2>Donanemab：慢慢爬升劑量，清除後就停</h2><p class="k-sub">每 4 週靜脈 30 分鐘；改良滴定已用於 45 國，ARIA-E 減少約三分之一而清除效果不變</p></div>
+  <div class="k-body">
+<div class="k-split" style="grid-template-columns:720px 1fr;align-items:start;gap:60px"><div><p class="k-lead" style="font-size:30px;font-weight:900">改良滴定（mg）</p><div class="k-vb" style="height:330px;gap:22px;border-bottom:3px solid var(--ink)" data-s="1"><div class="k-vc" style="width:150px"><b style="color:var(--terra)">350</b><i style="width:150px;height:25.0%;background:var(--terra)"></i></div><div class="k-vc" style="width:150px"><b style="color:var(--terra)">700</b><i style="width:150px;height:50.0%;background:var(--terra)"></i></div><div class="k-vc" style="width:150px"><b style="color:var(--terra)">1050</b><i style="width:150px;height:75.0%;background:var(--terra)"></i></div><div class="k-vc" style="width:150px"><b style="color:var(--terra)">1400</b><i style="width:150px;height:100.0%;background:var(--terra)"></i></div></div><div class="k-vlabs" style="gap:22px"><span style="width:150px;font-size:24px">第 1 劑</span><span style="width:150px;font-size:24px">第 2 劑</span><span style="width:150px;font-size:24px">第 3 劑</span><span style="width:150px;font-size:24px">第 4 劑起</span></div><p class="k-small" style="margin-top:14px">原始方案：700 → 700 → 700 → 1400 mg</p></div><div data-s="2"><table class="k-tb"><tr><th>TRAILBLAZER-ALZ 6</th><th>標準</th><th>改良滴定</th></tr><tr><td>ARIA-E（24 週）</td><td>23.7%</td><td class="b k-s">13.7%</td></tr><tr><td>ARIA-E（76 週）</td><td>24.2%</td><td class="b k-s">15.6%</td></tr><tr><td>有症狀 ARIA-E</td><td>4.8%</td><td class="b k-s">2.8%</td></tr><tr><td>ε4 同型合子 ARIA-E<span class="k-conf">會議</span></td><td>57%</td><td class="b k-s">24%</td></tr></table><p class="k-small" style="margin-top:16px">真實世界（172 人）：改良滴定 8.1% vs 原始 28.6%（Hakim 2026 PMID 42661728）<br>TRAILBLAZER-ALZ 2：用藥 76 週 76.4% 達清除；52 週內停藥者 3 年效益相近</p></div></div>
+<div class="k-take" data-s="3">12–18 個月照類澱粉 PET；達清除可停藥，之後仍需追蹤計畫</div>
+<p class="k-cite">KISUNLA 仿單 2026-01｜Wang H, et al. Alzheimers Dement 2025. PMID 40172303；J Prev Alzheimers Dis 2025. PMID 40619285｜Rabinovici 2025 AUR. PMID 40155270｜同型合子 57%→24%：AAIC 2026 會議資料</p>
+  </div>
+  <template class="k-narr">
+    <p data-step="0">donanemab 每四週靜脈注射，每次三十分鐘。</p>
+    <p data-step="1">改良滴定是三百五十、七百、一千零五十，再到一千四百毫克。</p>
+    <p data-step="2">TRAILBLAZER-ALZ 6 顯示，ARIA-E 從約百分之二十四降到十四到十六，同型合子從百分之五十七降到二十四，清除效果不變。</p>
+    <p data-step="2">真實世界一百七十二人中，改良滴定的 ARIA 是百分之八點一，原始方案是百分之二十八點六。</p>
+    <p data-step="2">改良滴定已經用在四十五個國家。</p>
+    <p data-step="3">十二到十八個月照類澱粉 PET，達到清除就可以停藥，之後仍要有追蹤計畫。</p>
+    <p data-step="3">限期型治療的好處是有終點，但停藥之後，仍然要有追蹤計畫。</p>
+  </template>
+</section>
+
+<section class="k-slide " data-chapter="如何治療" data-title="降低 ARIA 的四招">
+  <div class="k-head"><h2>降低不良事件的四招：兩招減 ARIA、兩招減輸注反應</h2><p class="k-sub">ARIA-E 與輸注反應的機轉不同，對策也不同</p></div>
+  <div class="k-body">
+<div class="k-g4 k-fill"><div class="k-bcard" data-s="1" style="border-top-color:var(--sage)"><h3>基因型導向滴定</h3><p class="k-bv" style="color:var(--sage)">3%</p><p>K-ROAD 508 人：同型合子 lecanemab 從 2.5 mg/kg 起、第 4 劑才足量；ARIA-E 非帶因 2.0%、同型合子 6.2%</p><p class="k-src">Kang 2026 PMID 42642841（觀察性，尚待隨機驗證）</p></div><div class="k-bcard" data-s="2" style="border-top-color:var(--sage)"><h3>先把血壓控制好</h3><p class="k-bv" style="color:var(--sage)">&gt;93</p><p>平均動脈壓 &gt;93 mmHg ARIA 上升；Indiana 輸注前 &gt;140/90 不輸注</p><p class="k-src">Zimmer 2025｜台灣共識｜AAIC 2026 會議資料</p></div><div class="k-bcard" data-s="3" style="border-top-color:var(--navy)"><h3>輸注反應前置用藥</h3><p class="k-bv" style="color:var(--navy)">45→28%</p><p>Acetaminophen 650 mg＋loratadine 10 mg＋famotidine 20 mg 口服</p><p class="k-src">Shields 2026 PMID 41581261</p></div><div class="k-bcard" data-s="4" style="border-top-color:var(--navy)"><h3>類固醇前置</h3><p class="k-bv" style="color:var(--navy)">16→10%</p><p>Dexamethasone 10 mg IV：只減輸注反應，<strong>ARIA 沒有減少</strong>；不建議常規使用</p><p class="k-src">TRAILBLAZER-ALZ 6 附加研究，AAIC 2026 會議資料</p></div></div>
+<div class="k-take warn" data-s="4">類固醇前置不能預防 ARIA；預防 ARIA 靠選病、滴定與血壓</div>
+
+  </div>
+  <template class="k-narr">
+    <p data-step="0">降低不良事件有四招：兩招減 ARIA，兩招減輸注反應。</p>
+    <p data-step="1">韓國 K-ROAD 用基因型導向滴定，同型合子從低劑量慢慢爬，ARIA-E 只有百分之三，不過這是觀察性資料。</p>
+    <p data-step="1">基因型導向滴定，是讓高風險的人從比較低的劑量開始，慢慢爬到足量。</p>
+    <p data-step="2">第二，先把血壓控制好。</p>
+    <p data-step="3">第三，輸注反應用口服三合一前置用藥，從百分之四十五降到二十八。</p>
+    <p data-step="4">第四，類固醇前置只減少輸注反應，ARIA 並沒有減少，不建議常規使用。</p>
+    <p data-step="4">要預防 ARIA，靠的是選病、滴定和血壓；類固醇解決的只是輸注反應。</p>
+  </template>
+</section>
+
+<section class="k-slide " data-chapter="如何治療" data-title="續打或停藥決策">
+  <div class="k-head"><h2>18 個月後：續打、降頻、停藥，還是轉換？</h2><p class="k-sub">點選路徑；每一步都需要與病人和家屬共同決策</p></div>
+  <div class="k-body">
+<div class="k-split" style="grid-template-columns:330px 1fr;align-items:stretch;gap:36px"><div class="k-col" style="gap:18px"><button class="k-rf big" data-step-btn="1">Lecanemab<br><small>打滿 18 個月</small></button><button class="k-rf big" data-step-btn="2">Donanemab<br><small>12–18 個月</small></button><button class="k-rf big" data-step-btn="3">任一藥物<br><small>發生問題</small></button></div><div class="k-col"><div class="k-ph" data-sto="0">◀ 先點選左側藥物或情境</div><div data-s="1" data-sto="1" class="k-col"><div class="k-g3 k-fill"><div class="k-card" style="border-top:12px solid var(--sage)"><h3>臨床穩定、願意繼續</h3><p>・改每 4 週靜脈維持（皮下劑型台灣尚未引進）</p><p>・或續用起始劑量</p><p>・無新症狀時依常規追蹤 MRI</p></div><div class="k-card" style="border-top:12px solid var(--navy)"><h3>進展到中度失智</h3><p>・仿單適應症為 MCI／輕度失智起始</p><p>・是否續打：共同決策，權衡負擔與自費</p></div><div class="k-card" style="border-top:12px solid var(--terra)"><h3>需長期抗凝</h3><p>・美國 AUR：停用</p><p>・台灣共識：可考慮停用，或評估出血風險與效益後個人化決策</p></div></div></div><div data-s="2" data-sto="2" class="k-col"><div class="k-g3 k-fill"><div class="k-card" style="border-top:12px solid var(--sage)"><h3>PET 達清除</h3><p>・可停藥（仿單：降到最低水準）</p><p>・停藥後回升約每年 2.4 CL</p><p>・定期臨床評估；單次維持劑量研究進行中</p></div><div class="k-card" style="border-top:12px solid var(--navy)"><h3>PET 未清除</h3><p>・繼續每 4 週給藥</p><p>・第 76 週未清除者，延伸至第 154 週有 56.8% 達標<span class="k-conf">會議</span></p></div><div class="k-card" style="border-top:12px solid var(--terra)"><h3>想轉換藥物</h3><p>・目前無轉換療效資料</p><p>・停藥後回升慢，轉換的必要性不明</p></div></div></div><div data-s="3" class="k-col"><div class="k-g3 k-fill"><div class="k-card" style="border-top:12px solid var(--terra)"><h3>ARIA</h3><p>・依症狀 × 影像處置（第 21 頁）</p><p>・巨出血、&gt;10 顆新微出血、反覆 ARIA-E：停藥</p></div><div class="k-card" style="border-top:12px solid var(--terra)"><h3>新的抗血栓需求</h3><p>・單一抗血小板：可併用</p><p>・短期雙抗、靜脈抗凝：暫停 ATT</p><p>・長期口服抗凝：個人化（第 27 頁）</p></div><div class="k-card" style="border-top:12px solid var(--navy)"><h3>嚴重輸注反應</h3><p>・≥3 級：考慮停藥（AUR）</p><p>・輕中度：前置用藥後續打</p></div></div></div></div></div>
+
+<p class="k-cite">LEQEMBI 仿單 7/2026｜Cummings 2023 Lecanemab AUR｜Rabinovici 2025 Donanemab AUR｜台灣共識 2025｜Zimmer 2026（第 154 週 56.8% 未清除者延伸後達標：AD/PD 2026 會議資料）</p>
+  </div>
+  <template class="k-narr">
+    <p data-step="0">打滿十八個月之後，續打、降頻、停藥，還是轉換？每一步都要和病人家屬共同決策。</p>
+    <p data-step="1">lecanemab：穩定的人改每四週維持；進展到中度失智要共同決策；需要長期抗凝時，美國建議停用，台灣共識則是個人化。</p>
+    <p data-step="2">donanemab 看 PET：清除就停；沒清除就繼續，延伸到一百五十四週，又有一半以上達標。目前沒有轉換藥物的療效資料。</p>
+    <p data-step="3">任一藥物發生 ARIA、新的抗血栓需求或嚴重輸注反應，就照前面的處置原則。</p>
+    <p data-step="3">每一條路徑都沒有標準答案，把和病人家屬討論的內容記錄下來，本身就是照護的一部分。</p>
+  </template>
+</section>
+
+<section class="k-slide " data-chapter="照護與系統" data-title="抗血栓藥物">
+  <div class="k-head"><h2>抗血栓藥物：台灣共識怎麼建議</h2><p class="k-sub">依據 Clarity 與 TRAILBLAZER 的出血資料；抗凝組人數少、藥名劑量不詳</p></div>
+  <div class="k-body">
+<div class="k-split" style="grid-template-columns:1040px 1fr;align-items:start;gap:44px"><table class="k-tb"><tr><th style="width:46%">情境</th><th>台灣共識建議</th></tr><tr data-s="1"><td>單一抗血小板</td><td class="b k-s">可併用</td></tr><tr data-s="1"><td>短期雙抗（&lt;3 個月）</td><td class="b k-t">暫停 ATT，改回單抗後再續打</td></tr><tr data-s="2"><td>長期雙抗</td><td class="b k-t">權衡出血風險與效益，個別化</td></tr><tr data-s="1"><td>靜脈或肌肉注射抗凝（heparin、LMWH）</td><td class="b k-t">無資料，暫停 ATT 是合理的</td></tr><tr data-s="2"><td>長期口服抗凝（VKA、DOAC）</td><td class="b k-t">可考慮停用 ATT，或個人化決策</td></tr><tr data-s="2"><td>心房顫動需抗凝</td><td>可考慮左心耳封堵，術後改單抗再開始</td></tr></table><div class="k-col" data-s="3"><div class="k-evi" style="background:var(--terra-wash)"><span class="k-big2 k-t">2.5%</span><p>Lecanemab＋抗凝的巨出血；含延伸期 2.7%；安慰劑＋抗凝 0%</p></div><div class="k-evi" style="background:var(--sage-wash)"><span class="k-big2 k-s">0.2–0.4%</span><p>Lecanemab＋抗血小板的巨出血，未高於未用抗血栓者</p></div><div class="k-evi"><span class="k-big2">0.4–0.8%</span><p>DOAC 試驗的顱內出血（定義不同）；VKA 對照組 1.2–1.8%</p></div></div></div>
+<div class="k-take" data-s="4">MCI 病人一年內就有 5.7% 出現新抗凝或溶栓適應症：開始治療前先談</div>
+<p class="k-cite">台灣腦中風學會＋台灣臨床失智症學會共識 Formosan J Stroke 2025;7(2):83–98（§2、表 2–3）｜LEQEMBI 仿單 §5.1｜Parks AL, et al. Neurology 2026. PMID 41461060</p>
+  </div>
+  <template class="k-narr">
+    <p data-step="0">抗血栓藥物，台灣共識的建議如下。</p>
+    <p data-step="1">單一抗血小板可以併用；短期雙抗先暫停治療，改回單抗再續打；靜脈或肌肉注射的抗凝，也先暫停。</p>
+    <p data-step="2">長期口服抗凝要個人化，必要時可以考慮左心耳封堵。</p>
+    <p data-step="3">數字上，lecanemab 合併抗凝的巨出血是百分之二點五，安慰劑合併抗凝是零；合併抗血小板則沒有增加。</p>
+    <p data-step="3">對照來看，新型口服抗凝劑試驗本身的顱內出血是百分之零點四到零點八。</p>
+    <p data-step="4">而 MCI 病人一年內，就有百分之五點七出現新的抗凝或溶栓適應症，所以開始治療前就要先談。</p>
+    <p data-step="4">實務上，開始治療前就要問清楚病人有沒有心房顫動、冠心病或血栓的病史，預先規劃。</p>
+  </template>
+</section>
+
+<section class="k-slide " data-chapter="照護與系統" data-title="急診流程">
+  <div class="k-head"><h2>治療中出現急性神經學缺損：先想 ARIA，再決定溶栓</h2><p class="k-sub">逐步展開；台灣共識與 AHA 2026 共識的處置方向一致</p></div>
+  <div class="k-body">
+<div class="k-er"><div class="b navy">急性神經學缺損：先問「正在打抗類澱粉抗體嗎？」（病歷標記、治療卡）</div><div class="b lt full" data-s="1">CT＋CTA（必要時 CT 灌流）</div><div class="b tr" data-s="2" style="grid-row:span 2">顱內出血 → 依 ICH 指引；<br>嚴重 ARIA-E 依院內流程用類固醇</div><div class="b lt r23" data-s="3">無出血：有大血管阻塞（LVO）？</div><div class="b sg" data-s="3">有 LVO：直接取栓，不橋接溶栓；術中盡量少用抗血栓</div><div class="b lt" data-s="4">無 LVO：MRI（FLAIR＋GRE/SWI＋DWI）排除 ARIA</div><div class="b tr" data-s="5" style="grid-column:2">見 ARIA 或無法排除：不建議靜脈溶栓，選替代治療</div><div class="b lt" data-s="5">MRI 無 ARIA：與病人、家屬充分說明後審慎考慮</div></div><div class="k-redlight" data-s="5" style="margin-top:22px"><span class="k-lab">記住</span><p>把「是否正在接受抗類澱粉治療」放進中風小組的第一個問題</p></div>
+
+<p class="k-cite">台灣共識 2025 §4、圖 3｜Greenberg SM, et al. J Am Heart Assoc 2026（Figure 1）. PMID 42622140｜兩例溶栓後致死性出血：Reish 2023 NEJM；FDA 諮詢委員會簡報（donanemab）</p>
+  </div>
+  <template class="k-narr">
+    <p data-step="0">治療中的病人出現急性神經學缺損，第一個問題是：他正在打抗類澱粉抗體嗎？病歷要有標記，病人要帶治療卡。</p>
+    <p data-step="1">先做 CT 加 CTA，必要時加做灌流。</p>
+    <p data-step="2">有顱內出血，照腦出血指引處理；嚴重 ARIA-E 依院內流程使用類固醇。</p>
+    <p data-step="3">沒有出血，就看有沒有大血管阻塞。有的話直接取栓，不要橋接溶栓，術中也盡量少用抗血栓藥物。</p>
+    <p data-step="4">沒有大血管阻塞，就做 MRI，包括 FLAIR、GRE 或 SWI、DWI，來排除 ARIA。</p>
+    <p data-step="5">看到 ARIA 或無法排除，不建議靜脈溶栓；MRI 沒有 ARIA，再和病人家屬充分說明後審慎考慮。過去兩例致死性出血，都是只做 CT 就給了溶栓。</p>
+    <p data-step="5">建議和急診、中風小組一起建立流程，並且讓病人隨身攜帶治療卡。</p>
+  </template>
+</section>
+
+<section class="k-slide " data-chapter="照護與系統" data-title="照護團隊與台灣現況">
+  <div class="k-head"><h2>照護系統：誰來排 MRI、誰來接急診、誰來付錢</h2><p class="k-sub">國外經驗顯示，瓶頸多半不在藥，而在流程與資源</p></div>
+  <div class="k-body">
+<div class="k-g3 k-fill"><div class="k-card k-cs" data-s="1"><h3>團隊分工</h3><p class="k-big k-s">58 人／425 劑</p><p>Vanderbilt 臨床藥師負責開立、衛教、登錄、排程與 MRI 協調；166 次 MRI，8 人 ARIA、1 人停藥</p><p class="k-big k-s" style="margin-top:14px">2＋1</p><p>Indiana：2 位神經科護理導航師＋1 位社工，管理約 400 人<span class="k-conf">會議</span></p><img src="img/gen_team_t.png" alt=""></div><div class="k-card k-cs" data-s="2"><h3>日本與美國的瓶頸</h3><p class="k-big k-n">5 人</p><p>日本 296 位專科醫師：每人治療中位數 5 人；約 80% 等候 ≤3 個月；量能不足與等候時間延長相關</p><p class="k-big k-n" style="margin-top:14px">0.2%</p><p>美國 120 萬 MCI／失智病人中用藥比例；黑人 OR 0.14、西語裔 0.21</p><img src="img/gen_queue_t.png" alt=""></div><div class="k-card k-cs terra" data-s="3"><h3>台灣現況</h3><p class="k-big k-t">全自費</p><p>截至 2026 年 11 月，欣智樂、樂意保<strong>皆無健保給付</strong>；年藥費約 100–150 萬元</p><p style="margin-top:10px">TFDA 2025 核准兩藥；台灣仿單不建議 ε4 同型合子使用</p><p style="margin-top:10px">樂意保皮下居家劑型台灣尚未引進</p><p style="margin-top:10px">日本 2026-07 起 APOE 檢測納保<span class="k-conf">會議</span></p><img src="img/gen_selfpay_t.png" alt=""></div></div>
+
+<p class="k-cite">Renwick R, et al. Am J Health Syst Pharm 2026. PMID 42921714｜Brosch：AAIC 2026 會議資料｜Nakashima S, et al. J Alzheimers Dis Rep 2026｜Reynolds EL, et al. Neurology 2026. PMID 42879726｜台灣健保與皮下劑型現況：講者提供（2026-11）｜藥費：科技新報 2025-07-31</p>
+  </div>
+  <template class="k-narr">
+    <p data-step="0">最後是照護系統：誰來排 MRI、誰來接急診、誰來付錢。</p>
+    <p data-step="1">Vanderbilt 由臨床藥師負責開立、衛教、排程和 MRI 協調；Indiana 用兩位神經科護理導航師加一位社工，管理大約四百位病人。</p>
+    <p data-step="1">Vanderbilt 的模式，五十八位病人、四百二十五劑，總共協調了一百六十六次 MRI。</p>
+    <p data-step="2">日本專科醫師每人平均只治療五位病人，量能是瓶頸；美國的用藥比例只有千分之二，還有種族差異。</p>
+    <p data-step="2">日本約八成病人等候不超過三個月，但量能不足和等候時間延長相關。</p>
+    <p data-step="3">台灣截至二零二六年十一月，兩支藥都沒有健保給付，全自費、年藥費約一百到一百五十萬元；lecanemab 的皮下居家劑型也還沒有引進。</p>
+    <p data-step="3">因此在台灣，建立團隊與流程，可能比藥本身更決定治療能不能順利進行。</p>
+  </template>
+</section>
+
+<section class="k-slide " data-chapter="結語" data-title="帶回家的 6 件事">
+  <div class="k-head"><h2>帶回家的 6 件事</h2></div>
+  <div class="k-body">
+<div class="k-col" style="gap:0"><div class="k-tk" data-s="1"><b>1</b><span>延伸期支持「早用、持續」的方向，但效益擴大的幅度要打折</span></div><div class="k-tk" data-s="2"><b>2</b><span>真實世界 ARIA 較低，主要來自選病與偵測；放寬適應症時要回到試驗標準</span></div><div class="k-tk" data-s="3"><b>3</b><span>MRI：前 6 個月最密集，固定機器與序列；停藥後若有 ARIA 也要追</span></div><div class="k-tk" data-s="4"><b>4</b><span>Lecanemab 持續型（18 個月後可降為每 4 週）；Donanemab 限期型（PET 清除即停）</span></div><div class="k-tk" data-s="5"><b>5</b><span>單抗可併用；雙抗、靜脈抗凝暫停；長期抗凝個人化</span></div><div class="k-tk" data-s="6"><b>6</b><span>中風小組第一個問題：「正在打抗類澱粉抗體嗎？」</span></div></div><p class="k-thanks" data-s="6">謝謝聆聽．歡迎討論</p>
+
+<p class="k-cite">本講數字皆回到原始文獻全文、FDA 仿單或會議報導核對；會議資料另有標示｜旁白為 AI 語音（ElevenLabs）｜配樂由 Google Lyria 生成｜插圖為 AI 生成</p>
+  </div>
+  <template class="k-narr">
+    <p data-step="0">最後，帶回家六件事。</p>
+    <p data-step="1">第一，延伸期支持早用、持續的方向，但效益擴大的幅度要打折。</p>
+    <p data-step="2">第二，真實世界 ARIA 較低，主要來自選病和偵測。</p>
+    <p data-step="3">第三，MRI 前六個月最密集，固定機器和序列，停藥後若有 ARIA 也要追。</p>
+    <p data-step="4">第四，lecanemab 是持續型，donanemab 是限期型。</p>
+    <p data-step="5">第五，單抗可以併用，雙抗和靜脈抗凝要暫停，長期抗凝個人化。</p>
+    <p data-step="5">這些原則，都要和病人與家屬一起討論，共同決策。</p>
+    <p data-step="6">第六，請帶回醫院：中風小組的第一個問題，要問病人有沒有在打抗類澱粉抗體。謝謝大家。</p>
+  </template>
+</section>
+
+<div id="k-chrome" aria-hidden="true">
+  <span id="k-chapter"></span>
+  <span id="k-track"><span id="k-bar" style="display:block"></span></span>
+  <span id="k-counter"></span>
+</div>
+<div id="k-sub" aria-live="polite"></div>
+</main>
+
+<div id="k-start" role="dialog" aria-label="選擇播放方式"><div class="box">
+  <h1>打完 18 個月之後</h1>
+  <p class="meta">陳培豪 醫師｜Lecanemab 與 Donanemab 的長期追蹤、真實世界資料與照護實務｜約 30 分鐘</p>
+  <div class="modes">
+    <div class="mode">
+      <h2>🎤 主講模式</h2>
+      <p>我自己講、自己翻頁。<br>← → 翻頁與逐步揭示，N 看逐字稿，O 總覽，B 黑屏。</p>
+      <button class="go" id="kgo-present">開始主講</button>
+    </div>
+    <div class="mode">
+      <h2>▶ 自動播放</h2>
+      <p>配音、字幕、配樂自動帶完整場。</p>
+      <div class="opt" data-opt="voice"></div>
+      <div class="opt" data-opt="sub"><b>字幕</b><label><input type="checkbox" checked>顯示</label></div>
+      <div class="opt" data-opt="bgm"><b>配樂</b><label><input type="checkbox" checked>播放</label></div>
+      <button class="go sage" id="kgo-auto">開始自動播放</button>
+    </div>
+  </div>
+  <p class="kb">自動播放中：空白鍵 暫停／繼續｜← → 上一句／下一句｜S 字幕｜M 配樂｜移動滑鼠叫出控制列，「選單」回到這裡</p>
+</div></div>
+
+<div id="k-ctl" role="toolbar" aria-label="播放控制">
+  <button id="kb-prev" title="上一步">◀</button>
+  <button id="kb-play" class="main auto-only">▶ 播放</button>
+  <button id="kb-next" title="下一步">▶</button>
+  <span class="t auto-only" id="kb-time"></span>
+  <button id="kb-voice" class="auto-only">配音</button>
+  <button id="kb-sub" class="auto-only" aria-pressed="true">字幕</button>
+  <button id="kb-bgm" aria-pressed="true">配樂</button>
+  <button id="kb-notes" class="present-only">講稿</button>
+  <button id="kb-ov">總覽</button>
+  <button id="kb-fs">全螢幕</button>
+  <button id="kb-menu">選單</button>
+</div>
+<div id="k-end"><div class="box"><p>播放完畢，謝謝收看</p><button id="kend-again">再播一次</button><button id="kend-menu">回到選單</button></div></div>
+<div id="k-black"></div>
+<div id="k-overview" aria-label="投影片總覽"><div id="k-ovgrid"></div></div>
+<aside class="k-panelx" id="k-notes"><h3>逐字稿（目前這一步標亮）</h3><div id="k-notesbody"></div></aside>
+
+<audio id="k-voice" preload="auto"></audio>
+<audio id="k-bgm" preload="auto" loop></audio>
+<script src="beats.js"></script>
+<script src="deck.js"></script>
+<script>
+/* 第 21 頁矩陣：點格子看細節；逐步時自動點亮（第 1–2 步：無症狀＋輕度；第 3 步：中重度症狀） */
+(() => {
+  const sec = document.querySelector('.k-mxpage'); if (!sec) return;
+  const det = sec.querySelector('.k-det');
+  const pick = c => { sec.querySelectorAll('td.cell').forEach(x => x.classList.remove('sel')); if (c) { c.classList.add('sel'); det.textContent = c.dataset.d; } };
+  sec.querySelectorAll('td.cell').forEach(c => c.addEventListener('click', () => pick(c)));
+  document.addEventListener('k-step', e => {
+    if (e.detail.el !== sec || e.detail.all) return;
+    const s = e.detail.step;
+    if (s === 1 || s === 2) pick(sec.querySelector('[data-k="E00"]')); else if (s >= 3) pick(sec.querySelector('[data-k="E20"]'));
+  });
+})();
+</script>
+</body>
+</html>
