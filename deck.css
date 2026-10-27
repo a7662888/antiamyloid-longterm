@@ -457,6 +457,15 @@ body.ctl-below #k-ctl{bottom:auto;transform:translateX(-50%)}
 body.ctl-tap #k-ctl{bottom:6px}
 body.ctl-tap #k-ctl:not(.hide){background:rgba(30,40,51,.95)}
 
+
+/* 手機：右下角 ☰ 叫出控制列；第一次主講時的操作提示 */
+#k-handle{display:none;position:fixed;right:10px;bottom:10px;z-index:26;width:42px;height:42px;border-radius:12px;
+  background:rgba(30,40,51,.55);color:#FFFFFF;font-size:22px;text-align:center;line-height:42px;padding:0}
+body.ctl-tap #k-handle{display:block}
+body.ctl-tap #k-ctl{right:62px;left:auto;transform:none}
+#k-toast{position:fixed;left:50%;top:14px;transform:translateX(-50%);z-index:45;background:rgba(30,40,51,.92);color:#FFFFFF;
+  font-size:15px;padding:8px 14px;border-radius:12px;max-width:94vw;text-align:center;pointer-events:none}
+
 /* 手機直向：開場選單改單欄、可捲動（2026-10-27 手機實測） */
 @media (max-width:700px){
   #k-start{align-items:flex-start;overflow-y:auto;padding:14px 0 24px}

@@ -19,7 +19,7 @@
   const pad = n => String(n).padStart(2, '0');
 
   /* ---------- 縮放：左上角為原點＋明確平移（行動裝置不會把舞台推出畫面） ---------- */
-  const TOUCH = matchMedia('(pointer: coarse)').matches || 'ontouchstart' in window;
+  const TOUCH = matchMedia('(hover: none) and (pointer: coarse)').matches;   // 手機、平板（觸控筆電仍算桌機）
   function fit() {
     const vv = window.visualViewport;
     const w = vv ? vv.width : innerWidth, h = vv ? vv.height : innerHeight;
@@ -248,7 +248,20 @@
     if (document.body.classList.contains('ctl-below')) return;          // 直放：控制列在簡報下方，常駐
     idle = setTimeout(() => ctl.classList.add('hide'), TOUCH ? 2500 : 3000);
   }
-  ['mousemove', 'pointerdown', 'keydown', 'touchstart'].forEach(ev => addEventListener(ev, wake, { passive: true }));
+  // 桌機：滑鼠移動或按鍵叫出控制列。手機：不因點畫面而跳出（主講要一直點下一步），改用右下角 ☰
+  (TOUCH ? ['keydown'] : ['mousemove', 'pointerdown', 'keydown']).forEach(ev => addEventListener(ev, wake, { passive: true }));
+  const handle = document.createElement('button');
+  handle.id = 'k-handle'; handle.textContent = '☰'; handle.setAttribute('aria-label', '顯示控制列');
+  document.body.appendChild(handle);
+  handle.addEventListener('click', e => { e.stopPropagation(); if (ctl && !ctl.classList.contains('hide') && !document.body.classList.contains('ctl-below')) ctl.classList.add('hide'); else wake(); });
+  if (ctl) ctl.addEventListener('click', () => wake());   // 操作控制列時延長顯示
+  // 手機主講：點畫面右側 2/3＝下一步、左側 1/3＝上一步（點到按鈕、選項、圖片等互動元件時照常互動）
+  const INTERACTIVE = 'button,a,input,label,select,textarea,.k-opt,.k-flip,img.zoom,td.cell,[data-step-btn],.k-nav,#k-ctl,#k-start,#k-handle,#k-overview,#k-notes,#k-end,#k-zoom';
+  document.addEventListener('click', e => {
+    if (!TOUCH || mode !== 'present' || e.target.closest(INTERACTIVE)) return;
+    if ($('#k-overview')?.classList.contains('on') || $('#k-notes')?.classList.contains('on')) return;
+    e.clientX < innerWidth / 3 ? prev() : next();
+  });
 
   /* ---------- 鍵盤 ---------- */
   addEventListener('keydown', e => {
@@ -318,6 +331,12 @@
     mode = m; document.body.classList.remove('present', 'auto'); document.body.classList.add(m);
     menu && menu.classList.add('off'); $('#k-end') && $('#k-end').classList.remove('on');
     setToggles(); wake();
+    if (TOUCH && m === 'present' && !sessionStorage.getItem('k-taphint')) {
+      try { sessionStorage.setItem('k-taphint', '1'); } catch (_) {}
+      const t = document.createElement('div'); t.id = 'k-toast';
+      t.textContent = '點畫面右側：下一步｜左側：上一步｜右下角 ☰：控制列';
+      document.body.appendChild(t); setTimeout(() => t.remove(), 3500);
+    }
     if (m === 'auto') { const n = Math.max(0, BEATS.findIndex(b => b.slide >= cur + 1)); startAuto(cur === 0 ? 0 : n); }
     else { pauseAuto(); }
   }
