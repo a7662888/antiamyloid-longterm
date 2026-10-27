@@ -19,11 +19,19 @@
   const pad = n => String(n).padStart(2, '0');
 
   /* ---------- 縮放：左上角為原點＋明確平移（行動裝置不會把舞台推出畫面） ---------- */
+  const TOUCH = matchMedia('(pointer: coarse)').matches || 'ontouchstart' in window;
   function fit() {
     const vv = window.visualViewport;
     const w = vv ? vv.width : innerWidth, h = vv ? vv.height : innerHeight;
     const s = Math.min(w / 1920, h / 1080);
     stage.style.transform = `translate(${(w - 1920 * s) / 2}px, ${(h - 1080 * s) / 2}px) scale(${s})`;
+    // 手機：簡報下方空白夠放控制列（直放）→ 控制列移到簡報下方、常駐；不夠（橫放）→ 平時隱藏、點畫面才出現
+    const free = (h - 1080 * s) / 2;
+    const below = free >= 64;
+    document.body.classList.toggle('ctl-below', below);
+    document.body.classList.toggle('ctl-tap', !below && TOUCH);
+    const c = document.getElementById('k-ctl');
+    if (c) c.style.top = below ? `${(h + 1080 * s) / 2 + 10}px` : '';
   }
   addEventListener('resize', fit);
   addEventListener('orientationchange', () => setTimeout(fit, 150));
@@ -234,7 +242,12 @@
   on($('#kb-ov'), () => toggle(ov));
   on($('#kb-fs'), () => document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen?.());
   let idle;
-  function wake() { if (!ctl) return; ctl.classList.remove('hide'); clearTimeout(idle); idle = setTimeout(() => ctl.classList.add('hide'), 3000); }
+  function wake() {
+    if (!ctl) return;
+    ctl.classList.remove('hide'); clearTimeout(idle);
+    if (document.body.classList.contains('ctl-below')) return;          // 直放：控制列在簡報下方，常駐
+    idle = setTimeout(() => ctl.classList.add('hide'), TOUCH ? 2500 : 3000);
+  }
   ['mousemove', 'pointerdown', 'keydown', 'touchstart'].forEach(ev => addEventListener(ev, wake, { passive: true }));
 
   /* ---------- 鍵盤 ---------- */
