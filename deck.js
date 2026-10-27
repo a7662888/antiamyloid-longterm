@@ -23,8 +23,10 @@
   function fit() {
     const vv = window.visualViewport;
     const w = vv ? vv.width : innerWidth, h = vv ? vv.height : innerHeight;
-    const s = Math.min(w / 1920, h / 1080);
-    stage.style.transform = `translate(${(w - 1920 * s) / 2}px, ${(h - 1080 * s) / 2}px) scale(${s})`;
+    let s = Math.min(w / 1920, h / 1080), rsv = 0;
+    // 觸控橫放、上下沒空間又左右沒留白（16:9 手機）→ 右側讓出 40px 給 ☰，簡報不被蓋
+    if (TOUCH && (h - 1080 * s) / 2 < 64 && (w - 1920 * s) / 2 < 40) { rsv = 40; s = Math.min((w - rsv) / 1920, h / 1080); }
+    stage.style.transform = `translate(${(w - rsv - 1920 * s) / 2}px, ${(h - 1080 * s) / 2}px) scale(${s})`;
     // 手機：簡報下方空白夠放控制列（直放）→ 控制列移到簡報下方、常駐；不夠（橫放）→ 平時隱藏、點畫面才出現
     const free = (h - 1080 * s) / 2;
     const below = free >= 64;
@@ -257,11 +259,17 @@
   if (ctl) ctl.addEventListener('click', () => wake());   // 操作控制列時延長顯示
   // 手機主講：點畫面右側 2/3＝下一步、左側 1/3＝上一步（點到按鈕、選項、圖片等互動元件時照常互動）
   const INTERACTIVE = 'button,a,input,label,select,textarea,.k-opt,.k-flip,img.zoom,td.cell,[data-step-btn],.k-nav,#k-ctl,#k-start,#k-handle,#k-overview,#k-notes,#k-end,#k-zoom';
-  document.addEventListener('click', e => {
-    if (!TOUCH || mode !== 'present' || e.target.closest(INTERACTIVE)) return;
-    if ($('#k-overview')?.classList.contains('on') || $('#k-notes')?.classList.contains('on')) return;
+  // iOS Safari 點在非互動區域不送 click，所以用 pointer 事件自己判斷「輕點」（位移 <12px、<450ms；滑動另由 touchend 處理）
+  let pd = null;
+  document.addEventListener('pointerdown', e => { pd = (e.pointerType === 'touch' || TOUCH) ? { x: e.clientX, y: e.clientY, t: Date.now(), el: e.target } : null; }, { passive: true });
+  document.addEventListener('pointerup', e => {
+    if (!pd || !TOUCH || mode !== 'present') return;
+    const d = pd; pd = null;
+    if (Math.hypot(e.clientX - d.x, e.clientY - d.y) > 12 || Date.now() - d.t > 450) return;
+    if (d.el.closest(INTERACTIVE)) return;
+    if ($('#k-overview')?.classList.contains('on') || $('#k-notes')?.classList.contains('on') || $('#k-black')?.classList.contains('on')) return;
     e.clientX < innerWidth / 3 ? prev() : next();
-  });
+  }, { passive: true });
 
   /* ---------- 鍵盤 ---------- */
   addEventListener('keydown', e => {

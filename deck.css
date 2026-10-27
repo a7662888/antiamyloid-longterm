@@ -459,8 +459,8 @@ body.ctl-tap #k-ctl:not(.hide){background:rgba(30,40,51,.95)}
 
 
 /* 手機：右下角 ☰ 叫出控制列；第一次主講時的操作提示 */
-#k-handle{display:none;position:fixed;right:10px;bottom:10px;z-index:26;width:42px;height:42px;border-radius:12px;
-  background:rgba(30,40,51,.55);color:#FFFFFF;font-size:22px;text-align:center;line-height:42px;padding:0}
+#k-handle{display:none;position:fixed;right:3px;bottom:6px;z-index:26;width:34px;height:36px;border-radius:10px;
+  background:rgba(30,40,51,.35);color:#FFFFFF;font-size:18px;text-align:center;line-height:36px;padding:0}
 body.ctl-tap #k-handle{display:block}
 body.ctl-tap #k-ctl{right:62px;left:auto;transform:none}
 #k-toast{position:fixed;left:50%;top:14px;transform:translateX(-50%);z-index:45;background:rgba(30,40,51,.92);color:#FFFFFF;
