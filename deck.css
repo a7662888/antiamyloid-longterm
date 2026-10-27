@@ -39,7 +39,7 @@ strong{font-weight:900}
 .k-slide.is-active{display:flex}
 
 /* ---------- head ---------- */
-.k-head{flex:0 0 auto;margin-bottom:30px;max-width:1500px}
+.k-head{flex:0 0 auto;margin-bottom:30px;max-width:none;padding-right:var(--navw,0px)}
 .k-slide h2{margin:0;font-family:"Noto Serif TC",serif;font-size:66px;line-height:1.18;
   font-weight:900;letter-spacing:-.01em}
 .k-sub{margin:14px 0 0;font-size:31px;line-height:1.5;color:var(--ink-2)}
@@ -463,8 +463,8 @@ body.ctl-tap #k-ctl:not(.hide){background:rgba(30,40,51,.95)}
   background:rgba(30,40,51,.35);color:#FFFFFF;font-size:18px;text-align:center;line-height:36px;padding:0}
 body.ctl-tap #k-handle{display:block}
 body.ctl-tap #k-ctl{right:62px;left:auto;transform:none}
-#k-toast{position:fixed;left:50%;top:14px;transform:translateX(-50%);z-index:45;background:rgba(30,40,51,.92);color:#FFFFFF;
-  font-size:15px;padding:8px 14px;border-radius:12px;max-width:94vw;text-align:center;pointer-events:none}
+#k-toast{position:fixed;left:50%;bottom:8px;transform:translateX(-50%);z-index:45;background:rgba(30,40,51,.85);color:#FFFFFF;
+  font-size:13px;padding:5px 12px;border-radius:12px;max-width:94vw;text-align:center;pointer-events:none}
 
 /* 手機直向：開場選單改單欄、可捲動（2026-10-27 手機實測） */
 @media (max-width:700px){

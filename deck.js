@@ -36,6 +36,7 @@
     if (c) c.style.top = below ? `${(h + 1080 * s) / 2 + 10}px` : '';
   }
   addEventListener('resize', fit);
+  if (document.fonts) document.fonts.ready.then(() => slides[cur] && fitHead(slides[cur]));
   addEventListener('orientationchange', () => setTimeout(fit, 150));
   if (window.visualViewport) visualViewport.addEventListener('resize', fit);
   fit();
@@ -75,6 +76,7 @@
   function render() {
     slides.forEach((s, i) => s.classList.toggle('is-active', i === cur));
     const s = slides[cur];
+    fitHead(s);
     s.dataset.step = showAll ? 'all' : step;   // CSS 可用 .k-slide[data-step="2"] 做步數相依的樣式
     s.querySelectorAll('[data-s]').forEach(el => el.classList.toggle('on', showAll || step >= +el.dataset.s));
     // data-sto="m"：第 m 步之後隱藏（換掉圖表／分頁內容）；?all=1 呈現最後狀態，被取代的也隱藏
@@ -90,6 +92,15 @@
     if (chrome.bar) chrome.bar.style.width = `${(cur + 1) / slides.length * 100}%`;
     if (location.hash !== `#${cur + 1}`) history.replaceState(null, '', `${location.search}#${cur + 1}`);
     renderNotes();
+  }
+  /* 標題自動保持一行：不同手機／瀏覽器字寬不同，標題一折行就把整頁往下推、壓到結論條。
+     折行時逐步縮小字級（最多到 82%），量測在頁面顯示時做。 */
+  function fitHead(sl) {
+    const h = sl.querySelector('.k-head h2'); if (!h) return;
+    if (!h.dataset.fs) h.dataset.fs = parseFloat(getComputedStyle(h).fontSize);
+    const base = +h.dataset.fs; let fs = base; h.style.fontSize = base + 'px';
+    const one = () => h.getBoundingClientRect().height / parseFloat(getComputedStyle(h).lineHeight) < 1.5;
+    while (!one() && fs > base * 0.82) { fs -= base * 0.03; h.style.fontSize = fs + 'px'; }
   }
   function go(i, st = 0) { cur = Math.max(0, Math.min(slides.length - 1, i)); step = st; render(); }
   function next() {
@@ -338,12 +349,12 @@
   function enter(m) {
     mode = m; document.body.classList.remove('present', 'auto'); document.body.classList.add(m);
     menu && menu.classList.add('off'); $('#k-end') && $('#k-end').classList.remove('on');
-    setToggles(); wake();
+    setToggles(); if (!TOUCH || document.body.classList.contains('ctl-below')) wake(); else ctl && ctl.classList.add('hide');
     if (TOUCH && m === 'present' && !sessionStorage.getItem('k-taphint')) {
       try { sessionStorage.setItem('k-taphint', '1'); } catch (_) {}
       const t = document.createElement('div'); t.id = 'k-toast';
       t.textContent = '點畫面右側：下一步｜左側：上一步｜右下角 ☰：控制列';
-      document.body.appendChild(t); setTimeout(() => t.remove(), 3500);
+      document.body.appendChild(t); setTimeout(() => t.remove(), 3000);
     }
     if (m === 'auto') { const n = Math.max(0, BEATS.findIndex(b => b.slide >= cur + 1)); startAuto(cur === 0 ? 0 : n); }
     else { pauseAuto(); }
