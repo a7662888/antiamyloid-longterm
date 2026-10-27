@@ -199,7 +199,14 @@ table.k-mx td.sel{outline:4px solid var(--navy);outline-offset:-4px}
 /* p30 帶回家 */
 .k-tk{display:flex;gap:26px;align-items:center;padding:14px 0;border-bottom:2px solid var(--line)}
 .k-tk b{flex:none;width:68px;height:68px;border-radius:14px;background:var(--navy);color:#FFFFFF;font-family:"Noto Serif TC",serif;font-size:38px;display:flex;align-items:center;justify-content:center}
-.k-tk span{font-size:34px;line-height:1.35}
+.k-tk span{font-size:31px;line-height:1.35}
+.k-endgrid{display:grid;grid-template-columns:1fr 540px;gap:40px;align-items:start}
+.k-qr{text-align:center;border-radius:20px;background:var(--line-2);padding:18px 20px}
+.k-qr img{width:460px;height:460px;display:block;margin:0 auto;border-radius:10px;background:#FFFFFF}
+.k-qrt{margin:8px 0 0;font-size:22px;color:var(--muted)}
+.k-qrn{margin:8px 0 0;font-size:32px;font-weight:900;color:var(--navy)}
+.k-qrm{margin:4px 0 0;font-size:24px;color:var(--ink-2)}
+.k-qr .k-thanks{text-align:center;font-size:30px;margin-top:6px}
 .k-thanks{margin:22px 0 0;text-align:right;font-family:"Noto Serif TC",serif;font-size:42px;font-weight:900;color:var(--sage)}
 
 /* 急診流程 */
@@ -776,7 +783,7 @@ table.k-mx td.sel{outline:4px solid var(--navy);outline-offset:-4px}
 <section class="k-slide " data-chapter="結語" data-title="帶回家的 6 件事">
   <div class="k-head"><h2>帶回家的 6 件事</h2></div>
   <div class="k-body">
-<div class="k-col" style="gap:0"><div class="k-tk" data-s="1"><b>1</b><span>延伸期支持「早用、持續」的方向，但效益擴大的幅度要打折</span></div><div class="k-tk" data-s="2"><b>2</b><span>真實世界 ARIA 較低，主要來自選病與偵測；放寬適應症時要回到試驗標準</span></div><div class="k-tk" data-s="3"><b>3</b><span>MRI：前 6 個月最密集，固定機器與序列；停藥後若有 ARIA 也要追</span></div><div class="k-tk" data-s="4"><b>4</b><span>Lecanemab 持續型（18 個月後可降為每 4 週）；Donanemab 限期型（PET 清除即停）</span></div><div class="k-tk" data-s="5"><b>5</b><span>單抗可併用；雙抗、靜脈抗凝暫停；長期抗凝個人化</span></div><div class="k-tk" data-s="6"><b>6</b><span>中風小組第一個問題：「正在打抗類澱粉抗體嗎？」</span></div></div><p class="k-thanks" data-s="6">謝謝聆聽．歡迎討論</p>
+<div class="k-endgrid"><div class="k-col" style="gap:0"><div class="k-tk" data-s="1"><b>1</b><span>延伸期支持「早用、持續」的方向，但效益擴大的幅度要打折</span></div><div class="k-tk" data-s="2"><b>2</b><span>真實世界 ARIA 較低，主要來自選病與偵測；放寬適應症時要回到試驗標準</span></div><div class="k-tk" data-s="3"><b>3</b><span>MRI：前 6 個月最密集，固定機器與序列；停藥後若有 ARIA 也要追</span></div><div class="k-tk" data-s="4"><b>4</b><span>Lecanemab 持續型（18 個月後可降為每 4 週）；Donanemab 限期型（PET 清除即停）</span></div><div class="k-tk" data-s="5"><b>5</b><span>單抗可併用；雙抗、靜脈抗凝暫停；長期抗凝個人化</span></div><div class="k-tk" data-s="6"><b>6</b><span>中風小組第一個問題：「正在打抗類澱粉抗體嗎？」</span></div></div><div class="k-qr" data-s="6"><img src="img/qrcode.png" alt="線上互動簡報 QR Code"><p class="k-qrt">掃描開啟線上互動簡報</p><p class="k-qrn">陳培豪 醫師</p><p class="k-qrm">a7662888@gmail.com</p><p class="k-thanks">謝謝聆聽．歡迎交流</p></div></div>
 
 <p class="k-cite">本講數字皆回到原始文獻全文、FDA 仿單或會議報導核對；會議資料另有標示｜旁白為 AI 語音（ElevenLabs）｜配樂由 Google Lyria 生成｜插圖為 AI 生成</p>
   </div>
@@ -818,7 +825,7 @@ table.k-mx td.sel{outline:4px solid var(--navy);outline-offset:-4px}
       <button class="go sage" id="kgo-auto">開始自動播放</button>
     </div>
   </div>
-  <p class="kb">版本 20261027-553a｜自動播放中：空白鍵 暫停／繼續｜← → 上一句／下一句｜S 字幕｜M 配樂｜移動滑鼠叫出控制列，「選單」回到這裡</p>
+  <p class="kb">版本 20261027-4656｜自動播放中：空白鍵 暫停／繼續｜← → 上一句／下一句｜S 字幕｜M 配樂｜移動滑鼠叫出控制列，「選單」回到這裡</p>
 </div></div>
 
 <div id="k-ctl" role="toolbar" aria-label="播放控制">
@@ -834,7 +841,7 @@ table.k-mx td.sel{outline:4px solid var(--navy);outline-offset:-4px}
   <button id="kb-fs">全螢幕</button>
   <button id="kb-menu">選單</button>
 </div>
-<div id="k-end"><div class="box"><p>播放完畢，謝謝收看</p><button id="kend-again">再播一次</button><button id="kend-menu">回到選單</button></div></div>
+<div id="k-end"><div class="box"><p>播放完畢，謝謝收看</p><img src="img/qrcode.png" alt="線上互動簡報 QR Code" style="width:200px;height:200px;display:block;margin:12px auto 6px"><p style="font-size:16px;color:#5F6B77;margin:0">掃描開啟線上互動簡報</p><p style="font-size:18px;margin:8px 0 0"><b>陳培豪 醫師</b>｜歡迎交流｜a7662888@gmail.com</p><button id="kend-again">再播一次</button><button id="kend-menu">回到選單</button></div></div>
 <div id="k-black"></div>
 <div id="k-overview" aria-label="投影片總覽"><div id="k-ovgrid"></div></div>
 <aside class="k-panelx" id="k-notes"><h3>逐字稿（目前這一步標亮）</h3><div id="k-notesbody"></div></aside>
